@@ -32,6 +32,9 @@ public class RegistryHandler {
     public static final RegistryObject<Item> MK7_IRON_INGOT = ITEMS.register("mk7_iron_ingot", ItemBase::new);
     public static final RegistryObject<Item> IRON_BEAD = ITEMS.register("iron_bead", ItemBase::new);
 
+    public static final RegistryObject<Item> MK6_SWORD = ITEMS.register("mk6_sword", ItemBase::new);
+    public static final RegistryObject<Item> MK7_SWORD = ITEMS.register("mk7_sword", ItemBase::new);
+
     // Blocks
     public static final RegistryObject<Block> MK2_FURNACE_BLOCK = BLOCKS.register("mk2_furnace_block", Mk2FurnaceBlock::new);
     public static final RegistryObject<Block> POROUS_STONE_BLOCK = BLOCKS.register("porous_stone_block", PorousStoneBlock::new);
