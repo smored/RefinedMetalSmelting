@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "minecraft:smooth_stone"
+  },
+  "result": "rms:porous_stone_block",
+  "experience": 0.0,
+  "cookingtime": 200
+}

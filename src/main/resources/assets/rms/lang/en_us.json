@@ -1,0 +1,13 @@
+{
+  "item.rms.mk1_iron_ingot": "Iron that i just pulled out of my butthole",
+  "item.rms.mk2_iron_ingot": "Impure Iron Ingot",
+  "item.rms.mk3_iron_ingot": "Refined Iron Ingot",
+  "item.rms.mk4_iron_ingot": "Blue Steel Ingot",
+  "item.rms.mk5_iron_ingot": "Ultra Dense Steel",
+  "item.rms.mk6_iron_ingot": "Dark Matter Ingot",
+  "item.rms.mk7_iron_ingot": "Unstable Matter Ingot",
+  "item.rms.iron_bead": "Iron Bead",
+  "block.rms.mk2_furnace_block": "MK II Furnace",
+  "block.rms.porous_stone_block": "Porous Stone",
+  "itemGroup.rmsTab": "Refined Metal Smelting"
+}

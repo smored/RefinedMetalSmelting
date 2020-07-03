@@ -1,0 +1,9 @@
+{
+  "parent": "block/orientable",
+  "textures": {
+    "top": "rms:blocks/porous_stone_block",
+    "front": "rms:blocks/mk2_furnace_block",
+    "side": "rms:blocks/mk2_furnace_block_side"
+
+  }
+}

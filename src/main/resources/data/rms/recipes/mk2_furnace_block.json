@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "xxx",
+    "x x",
+    "xxx"
+  ],
+  "key":
+  {
+    "x":
+    {
+      "item": "rms:porous_stone_block"
+    }
+  },
+  "result":
+  {
+    "item": "rms:mk2_furnace_block",
+    "count": 1
+  }
+}
