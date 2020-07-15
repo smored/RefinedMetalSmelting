@@ -26,19 +26,15 @@ public class RefinedMetalSmelting
         MinecraftForge.EVENT_BUS.register(this);
     }
 
-    private void setup(final FMLCommonSetupEvent event) {
+    private void setup(final FMLCommonSetupEvent event) {}
 
-    }
-
-    private void doClientStuff(final FMLClientSetupEvent event) {
-
-    }
+    private void doClientStuff(final FMLClientSetupEvent event) {}
 
     public static final ItemGroup TAB = new ItemGroup("rmsTab"){
 
         @Override
         public ItemStack createIcon() {
-            return new ItemStack(RegistryHandler.MK7_IRON_INGOT.get());
+            return new ItemStack(RegistryHandler.MK7_SWORD.get());
         }
     };
 }

@@ -1,15 +1,52 @@
 {
+  "block.rms.porous_stone_block": "Porous Stone",
   "item.rms.mk1_iron_ingot": "Dirty Iron Ingot",
   "item.rms.mk2_iron_ingot": "Impure Iron Ingot",
   "item.rms.mk3_iron_ingot": "Refined Iron Ingot",
   "item.rms.mk4_iron_ingot": "Blue Steel Ingot",
-  "item.rms.mk5_iron_ingot": "Ultra Dense Steel Ingot",
+  "item.rms.mk5_iron_ingot": "Ultra-Dense Steel Ingot",
   "item.rms.mk6_iron_ingot": "Dark Matter Ingot",
   "item.rms.mk7_iron_ingot": "Unstable Ingot",
+
   "item.rms.iron_bead": "Iron Bead",
-  "block.rms.mk2_furnace_block": "MK II Furnace",
-  "block.rms.porous_stone_block": "Porous Stone",
-  "item.rms.mk6_sword": "Dark Matter Sword",
+
+  "block.rms.mk2_furnace_block": "Cupellation Furnace",
+
+  "item.rms.mk1_sword": "Rusty Sword",
+  "item.rms.mk1_pickaxe": "Rusty Pickaxe",
+  "item.rms.mk1_shovel": "Rusty Shovel",
+  "item.rms.mk1_axe": "Rusty Axe",
+  "item.rms.mk1_hoe": "Rusty Hoe",
+
+  "item.rms.mk2_sword": "Dull Sword",
+  "item.rms.mk2_pickaxe": "Dull Pickaxe",
+  "item.rms.mk2_shovel": "Dull Shovel",
+  "item.rms.mk2_axe": "Dull Axe",
+  "item.rms.mk2_hoe": "Dull Hoe",
+
+  "item.rms.mk4_sword": "Blue Steel Sword",
+  "item.rms.mk4_pickaxe": "Blue Steel Pickaxe",
+  "item.rms.mk4_shovel": "Blue Steel Shovel",
+  "item.rms.mk4_axe": "Blue Steel Axe",
+  "item.rms.mk4_hoe": "Blue Steel Hoe",
+
+  "item.rms.mk5_sword": "Ultra-Dense Sword",
+  "item.rms.mk5_pickaxe": "Ultra-Dense Pickaxe",
+  "item.rms.mk5_shovel": "Ultra-Dense Shovel",
+  "item.rms.mk5_axe": "Ultra-Dense Axe",
+  "item.rms.mk5_hoe": "Ultra-Dense Hoe",
+
+  "item.rms.mk6_sword": "Dark Sword",
+  "item.rms.mk6_pickaxe": "Dark Pickaxe",
+  "item.rms.mk6_shovel": "Dark Shovel",
+  "item.rms.mk6_axe": "Dark Axe",
+  "item.rms.mk6_hoe": "Dark Hoe",
+
   "item.rms.mk7_sword": "Unstable Sword",
+  "item.rms.mk7_pickaxe": "Unstable Pickaxe",
+  "item.rms.mk7_shovel": "Unstable Shovel",
+  "item.rms.mk7_axe": "Unstable Axe",
+  "item.rms.mk7_hoe": "Unstable Hoe",
+
   "itemGroup.rmsTab": "Refined Metal Smelting"
 }

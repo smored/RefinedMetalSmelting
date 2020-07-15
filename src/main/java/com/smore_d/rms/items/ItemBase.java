@@ -9,3 +9,5 @@ public class ItemBase extends Item {
         super(new Item.Properties().group(RefinedMetalSmelting.TAB));
     }
 }
+
+

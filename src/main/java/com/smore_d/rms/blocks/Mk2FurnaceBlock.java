@@ -16,4 +16,5 @@ public class Mk2FurnaceBlock extends Block {
                 .harvestTool(ToolType.PICKAXE)
         );
     }
+
 }
