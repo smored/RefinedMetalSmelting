@@ -41,7 +41,7 @@ public class RegistryHandler {
     public static final RegistryObject<ShovelItem> MK1_SHOVEL = ITEMS.register("mk1_shovel", () ->
             new ShovelItem(ModItemTier.MK1, 0, -3.0f, new Item.Properties().group(RefinedMetalSmelting.TAB)));
     public static final RegistryObject<AxeItem> MK1_AXE = ITEMS.register("mk1_axe", () ->
-            new AxeItem(ModItemTier.MK1, 2, -3.1f, new Item.Properties().group(RefinedMetalSmelting.TAB)));
+            new AxeItem(ModItemTier.MK1, 3, -3.1f, new Item.Properties().group(RefinedMetalSmelting.TAB)));
     public static final RegistryObject<HoeItem> MK1_HOE = ITEMS.register("mk1_hoe", () ->
             new HoeItem(ModItemTier.MK1, 0, new Item.Properties().group(RefinedMetalSmelting.TAB)));
 
@@ -52,7 +52,7 @@ public class RegistryHandler {
     public static final RegistryObject<ShovelItem> MK2_SHOVEL = ITEMS.register("mk2_shovel", () ->
             new ShovelItem(ModItemTier.MK2, 0, -3.0f, new Item.Properties().group(RefinedMetalSmelting.TAB)));
     public static final RegistryObject<AxeItem> MK2_AXE = ITEMS.register("mk2_axe", () ->
-            new AxeItem(ModItemTier.MK2, 2, -3.1f, new Item.Properties().group(RefinedMetalSmelting.TAB)));
+            new AxeItem(ModItemTier.MK2, 4, -3.1f, new Item.Properties().group(RefinedMetalSmelting.TAB)));
     public static final RegistryObject<HoeItem> MK2_HOE = ITEMS.register("mk2_hoe", () ->
             new HoeItem(ModItemTier.MK2, 0, new Item.Properties().group(RefinedMetalSmelting.TAB)));
 
@@ -63,7 +63,7 @@ public class RegistryHandler {
     public static final RegistryObject<ShovelItem> MK4_SHOVEL = ITEMS.register("mk4_shovel", () ->
             new ShovelItem(ModItemTier.MK4, 0, -3.0f, new Item.Properties().group(RefinedMetalSmelting.TAB)));
     public static final RegistryObject<AxeItem> MK4_AXE = ITEMS.register("mk4_axe", () ->
-            new AxeItem(ModItemTier.MK4, 4, -3.1f, new Item.Properties().group(RefinedMetalSmelting.TAB)));
+            new AxeItem(ModItemTier.MK4, 7, -3.1f, new Item.Properties().group(RefinedMetalSmelting.TAB)));
     public static final RegistryObject<HoeItem> MK4_HOE = ITEMS.register("mk4_hoe", () ->
             new HoeItem(ModItemTier.MK4, 0, new Item.Properties().group(RefinedMetalSmelting.TAB)));
 
@@ -74,7 +74,7 @@ public class RegistryHandler {
     public static final RegistryObject<ShovelItem> MK5_SHOVEL = ITEMS.register("mk5_shovel", () ->
             new ShovelItem(ModItemTier.MK5, 0, -3.0f, new Item.Properties().group(RefinedMetalSmelting.TAB)));
     public static final RegistryObject<AxeItem> MK5_AXE = ITEMS.register("mk5_axe", () ->
-            new AxeItem(ModItemTier.MK5, 5, -3.1f, new Item.Properties().group(RefinedMetalSmelting.TAB)));
+            new AxeItem(ModItemTier.MK5, 8, -3.1f, new Item.Properties().group(RefinedMetalSmelting.TAB)));
     public static final RegistryObject<HoeItem> MK5_HOE = ITEMS.register("mk5_hoe", () ->
             new HoeItem(ModItemTier.MK5, 0, new Item.Properties().group(RefinedMetalSmelting.TAB)));
     
@@ -85,7 +85,7 @@ public class RegistryHandler {
     public static final RegistryObject<ShovelItem> MK6_SHOVEL = ITEMS.register("mk6_shovel", () ->
             new ShovelItem(ModItemTier.MK6, 0, -3.0f, new Item.Properties().group(RefinedMetalSmelting.TAB)));
     public static final RegistryObject<AxeItem> MK6_AXE = ITEMS.register("mk6_axe", () ->
-            new AxeItem(ModItemTier.MK6, 6, -3.1f, new Item.Properties().group(RefinedMetalSmelting.TAB)));
+            new AxeItem(ModItemTier.MK6, 9, -3.1f, new Item.Properties().group(RefinedMetalSmelting.TAB)));
     public static final RegistryObject<HoeItem> MK6_HOE = ITEMS.register("mk6_hoe", () ->
             new HoeItem(ModItemTier.MK6, 0, new Item.Properties().group(RefinedMetalSmelting.TAB)));
 
@@ -96,7 +96,7 @@ public class RegistryHandler {
     public static final RegistryObject<ShovelItem> MK7_SHOVEL = ITEMS.register("mk7_shovel", () ->
             new ShovelItem(ModItemTier.MK7, 0, -3.0f, new Item.Properties().group(RefinedMetalSmelting.TAB)));
     public static final RegistryObject<AxeItem> MK7_AXE = ITEMS.register("mk7_axe", () ->
-            new AxeItem(ModItemTier.MK7, 8, -3.1f, new Item.Properties().group(RefinedMetalSmelting.TAB)));
+            new AxeItem(ModItemTier.MK7, 10, -3.1f, new Item.Properties().group(RefinedMetalSmelting.TAB)));
     public static final RegistryObject<HoeItem> MK7_HOE = ITEMS.register("mk7_hoe", () ->
             new HoeItem(ModItemTier.MK7, 0, new Item.Properties().group(RefinedMetalSmelting.TAB)));
 
