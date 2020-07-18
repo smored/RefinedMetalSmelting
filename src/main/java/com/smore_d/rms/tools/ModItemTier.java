@@ -9,29 +9,29 @@ import java.util.function.Supplier;
 public enum ModItemTier implements IItemTier {
 
     MK1(1, 60, 3, 2.0f, 5, () -> {
-        return Ingredient.fromItems(RegistryHandler.MK1_SWORD.get());
+        return Ingredient.fromItems(RegistryHandler.MK1_IRON_INGOT.get());
     }),
 
     MK2(2, 200, 5, 2.0f, 10, () -> {
-        return Ingredient.fromItems(RegistryHandler.MK2_SWORD.get());
+        return Ingredient.fromItems(RegistryHandler.MK2_IRON_INGOT.get());
     }),
 
     // MK3 is skipped because that material is base iron
 
-    MK4(3, 500, 6, 2.0f, 15, () -> {
-        return Ingredient.fromItems(RegistryHandler.MK4_SWORD.get());
+    MK4(2, 500, 6, 2.0f, 15, () -> {
+        return Ingredient.fromItems(RegistryHandler.MK4_IRON_INGOT.get());
     }),
 
     MK5(3, 2000, 10, 2.0f, 20, () -> {
-        return Ingredient.fromItems(RegistryHandler.MK5_SWORD.get());
+        return Ingredient.fromItems(RegistryHandler.MK5_IRON_INGOT.get());
     }),
 
     MK6(3, 5000, 20, 2.0f, 40, () -> {
-        return Ingredient.fromItems(RegistryHandler.MK6_SWORD.get());
+        return Ingredient.fromItems(RegistryHandler.MK6_IRON_INGOT.get());
     }),
 
-    MK7(3, 10000, 100, 2.0f, 80, () -> {
-        return Ingredient.fromItems(RegistryHandler.MK7_SWORD.get());
+    MK7(3, Integer.MAX_VALUE, 100, 2.0f, 80, () -> {
+        return Ingredient.fromItems(RegistryHandler.MK7_IRON_INGOT.get());
     });
 
     private final int harvestLevel;

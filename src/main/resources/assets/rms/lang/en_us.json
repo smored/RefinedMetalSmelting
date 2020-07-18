@@ -1,5 +1,8 @@
 {
   "block.rms.porous_stone_block": "Porous Stone",
+  "block.rms.blood_diamond_ore_block": "Blood Diamond Ore",
+  "block.rms.mk2_furnace_block": "Cupellation Furnace",
+
   "item.rms.mk1_iron_ingot": "Dirty Iron Ingot",
   "item.rms.mk2_iron_ingot": "Impure Iron Ingot",
   "item.rms.mk3_iron_ingot": "Refined Iron Ingot",
@@ -9,8 +12,8 @@
   "item.rms.mk7_iron_ingot": "Unstable Ingot",
 
   "item.rms.iron_bead": "Iron Bead",
-
-  "block.rms.mk2_furnace_block": "Cupellation Furnace",
+  "item.rms.blood_diamond": "Blood Diamond",
+  "item.rms.smore": "Herculean Smore",
 
   "item.rms.mk1_sword": "Rusty Sword",
   "item.rms.mk1_pickaxe": "Rusty Pickaxe",
@@ -47,6 +50,11 @@
   "item.rms.mk7_shovel": "Unstable Shovel",
   "item.rms.mk7_axe": "Unstable Axe",
   "item.rms.mk7_hoe": "Unstable Hoe",
+
+  "item.rms.mk7_helmet": "Unstable Helmet",
+  "item.rms.mk7_chestplate": "Unstable Chestplate",
+  "item.rms.mk7_leggings": "Unstable Leggings",
+  "item.rms.mk7_boots": "Unstable Boots",
 
   "itemGroup.rmsTab": "Refined Metal Smelting"
 }

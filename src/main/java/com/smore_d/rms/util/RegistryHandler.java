@@ -1,12 +1,16 @@
 package com.smore_d.rms.util;
 
 import com.smore_d.rms.RefinedMetalSmelting;
+import com.smore_d.rms.armour.ModArmourMaterial;
 import com.smore_d.rms.blocks.BlockItemBase;
+import com.smore_d.rms.blocks.BloodDiamondOreBlock;
 import com.smore_d.rms.blocks.Mk2FurnaceBlock;
 import com.smore_d.rms.blocks.PorousStoneBlock;
 import com.smore_d.rms.items.ItemBase;
+import com.smore_d.rms.items.Smore;
 import com.smore_d.rms.tools.ModItemTier;
 import net.minecraft.block.Block;
+import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.*;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
@@ -32,6 +36,8 @@ public class RegistryHandler {
     public static final RegistryObject<Item> MK6_IRON_INGOT = ITEMS.register("mk6_iron_ingot", ItemBase::new);
     public static final RegistryObject<Item> MK7_IRON_INGOT = ITEMS.register("mk7_iron_ingot", ItemBase::new);
     public static final RegistryObject<Item> IRON_BEAD = ITEMS.register("iron_bead", ItemBase::new);
+    public static final RegistryObject<Item> BLOOD_DIAMOND = ITEMS.register("blood_diamond", ItemBase::new);
+    public static final RegistryObject<Smore> SMORE = ITEMS.register("smore", Smore::new);
 
     //tools subcategory
     public static final RegistryObject<SwordItem> MK1_SWORD = ITEMS.register("mk1_sword", () ->
@@ -100,12 +106,23 @@ public class RegistryHandler {
     public static final RegistryObject<HoeItem> MK7_HOE = ITEMS.register("mk7_hoe", () ->
             new HoeItem(ModItemTier.MK7, 0, new Item.Properties().group(RefinedMetalSmelting.TAB)));
 
+    //Armour
+    public static final RegistryObject<ArmorItem> MK7_HELMET = ITEMS.register("mk7_helmet", () ->
+            new ArmorItem(ModArmourMaterial.MK7, EquipmentSlotType.HEAD, new Item.Properties().group(RefinedMetalSmelting.TAB)));
+    public static final RegistryObject<ArmorItem> MK7_CHESTPLATE = ITEMS.register("mk7_chestplate", () ->
+            new ArmorItem(ModArmourMaterial.MK7, EquipmentSlotType.CHEST, new Item.Properties().group(RefinedMetalSmelting.TAB)));
+    public static final RegistryObject<ArmorItem> MK7_LEGGINGS = ITEMS.register("mk7_leggings", () ->
+            new ArmorItem(ModArmourMaterial.MK7, EquipmentSlotType.LEGS, new Item.Properties().group(RefinedMetalSmelting.TAB)));
+    public static final RegistryObject<ArmorItem> MK7_BOOTS = ITEMS.register("mk7_boots", () ->
+            new ArmorItem(ModArmourMaterial.MK7, EquipmentSlotType.FEET, new Item.Properties().group(RefinedMetalSmelting.TAB)));
 
     // Blocks
     public static final RegistryObject<Block> MK2_FURNACE_BLOCK = BLOCKS.register("mk2_furnace_block", Mk2FurnaceBlock::new);
     public static final RegistryObject<Block> POROUS_STONE_BLOCK = BLOCKS.register("porous_stone_block", PorousStoneBlock::new);
+    public static final RegistryObject<Block> BLOOD_DIAMOND_ORE_BLOCK = BLOCKS.register("blood_diamond_ore_block", BloodDiamondOreBlock::new);
 
     // Block Items
     public static final RegistryObject<Item> MK2_FURNACE_BLOCK_ITEM = ITEMS.register("mk2_furnace_block", () -> new BlockItemBase(MK2_FURNACE_BLOCK.get()));
     public static final RegistryObject<Item> POROUS_STONE_BLOCK_ITEM = ITEMS.register("porous_stone_block", () -> new BlockItemBase(POROUS_STONE_BLOCK.get()));
+    public static final RegistryObject<Item> BLOOD_DIAMOND_ORE_BLOCK_ITEM = ITEMS.register("blood_diamond_ore_block", () -> new BlockItemBase(BLOOD_DIAMOND_ORE_BLOCK.get()));
 }
