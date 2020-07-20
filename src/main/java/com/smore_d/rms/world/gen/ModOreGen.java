@@ -22,6 +22,7 @@ public class ModOreGen {
 
     // create a new filler block type
     public static OreFeatureConfig.FillerBlockType OBSIDIAN = OreFeatureConfig.FillerBlockType.create("OBSIDIAN", "obsidian", new BlockMatcher(Blocks.OBSIDIAN));
+    public static OreFeatureConfig.FillerBlockType COAL_ORE = OreFeatureConfig.FillerBlockType.create("COAL_ORE", "coal_ore", new BlockMatcher(Blocks.COAL_ORE));
 
 
     @SubscribeEvent
@@ -30,7 +31,9 @@ public class ModOreGen {
         for (Biome biome : ForgeRegistries.BIOMES) {
 
             if ((biome.getCategory() != Biome.Category.NETHER) && (biome.getCategory() != Biome.Category.THEEND)) {
-                genOre(biome, 250, 1, 5, 50, OBSIDIAN, RegistryHandler.BLOOD_DIAMOND_ORE_BLOCK.get().getDefaultState(), 3);
+                genOre(biome, 250, 0, 5, 50, OBSIDIAN, RegistryHandler.BLOOD_DIAMOND_ORE_BLOCK.get().getDefaultState(), 3);
+                genOre(biome, 1000, 0, 5, 30, COAL_ORE, RegistryHandler.CARBON_COAL_ORE_BLOCK.get().getDefaultState(), 3);
+                genOre(biome, 2, 0, 5, 35, OreFeatureConfig.FillerBlockType.NATURAL_STONE, RegistryHandler.KAOLINITE_ORE_BLOCK.get().getDefaultState(), 7);
             }
 
         }

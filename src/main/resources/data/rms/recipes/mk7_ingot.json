@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "xxx",
+    "x#x",
+    "xxx"
+  ],
+  "key":
+  {
+    "x":
+    {
+      "item": "rms:energized_blood_diamond"
+    },
+    "#":
+    {
+      "item":  "rms:mk6_iron_ingot"
+    }
+  },
+  "result":
+  {
+    "item": "rms:mk7_iron_ingot",
+    "count": 1
+  }
+}

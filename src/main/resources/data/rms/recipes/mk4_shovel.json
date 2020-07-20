@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    " i ",
+    " s ",
+    " s "
+  ],
+  "key":
+  {
+    "i":
+    {
+      "item": "rms:mk4_iron_ingot"
+    },
+    "s":
+    {
+      "item":  "rms:mk2_iron_ingot"
+    }
+  },
+  "result":
+  {
+    "item": "rms:mk4_shovel",
+    "count": 1
+  }
+}

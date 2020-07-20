@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "# #",
+    "# #",
+    "###"
+  ],
+  "key":
+  {
+    "#":
+    {
+      "item": "minecraft:clay_ball"
+    }
+  },
+  "result":
+  {
+    "item": "rms:unfired_cupel",
+    "count": 1
+  }
+}

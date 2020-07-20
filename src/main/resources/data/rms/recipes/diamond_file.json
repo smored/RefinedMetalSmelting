@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:stick"
+    },
+    {
+      "item": "minecraft:diamond"
+    }
+  ],
+  "result":
+  {
+    "item": "rms:diamond_file",
+    "count": 16
+  }
+}

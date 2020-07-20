@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "ii ",
+    "is ",
+    " s "
+  ],
+  "key":
+  {
+    "i":
+    {
+      "item": "rms:mk1_iron_ingot"
+    },
+    "s":
+    {
+      "item":  "minecraft:stick"
+    }
+  },
+  "result":
+  {
+    "item": "rms:mk1_axe",
+    "count": 1
+  }
+}

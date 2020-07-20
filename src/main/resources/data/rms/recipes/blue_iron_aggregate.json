@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "rms:carbon_coal"
+    },
+    {
+      "item": "minecraft:iron_ingot"
+    },
+    {
+      "item": "minecraft:diamond"
+    }
+  ],
+  "result":
+  {
+    "item": "rms:blue_iron_aggregate",
+    "count": 4
+  }
+}

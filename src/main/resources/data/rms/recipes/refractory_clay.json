@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "minecraft:clay_ball"
+    },
+    {
+      "item": "rms:lime"
+    }
+  ],
+  "result":
+  {
+    "item": "rms:refractory_clay",
+    "count": 2
+  }
+}

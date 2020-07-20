@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "xxx",
+    "x#x",
+    "xxx"
+  ],
+  "key":
+  {
+    "x":
+    {
+      "item": "rms:firebrick"
+    },
+    "#":
+    {
+      "item": "rms:t2_frame"
+    }
+  },
+  "result":
+  {
+    "item": "rms:mk3_furnace_block",
+    "count": 64
+  }
+}

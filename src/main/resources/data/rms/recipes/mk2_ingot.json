@@ -1,0 +1,37 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "rms:mk1_iron_ingot"
+    },
+    {
+      "item": "rms:mk1_iron_ingot"
+    },
+    {
+      "item": "rms:mk1_iron_ingot"
+    },
+    {
+      "item": "rms:mk1_iron_ingot"
+    },
+    {
+      "item": "rms:mk1_iron_ingot"
+    },
+    {
+      "item": "rms:mk1_iron_ingot"
+    },
+    {
+      "item": "rms:mk3_furnace_block"
+    },
+    {
+      "item": "rms:carbon_coal"
+    },
+    {
+      "item": "rms:cupel"
+    }
+  ],
+  "result":
+  {
+    "item": "rms:mk2_iron_ingot",
+    "count": 6
+  }
+}

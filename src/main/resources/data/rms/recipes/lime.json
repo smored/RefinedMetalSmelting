@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "rms:carbon_coal"
+    },
+    {
+      "item": "rms:mk2_furnace_block"
+    }
+  ],
+  "result":
+  {
+    "item": "rms:lime",
+    "count": 8
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "rms:refractory_clay"
+  },
+  "result": "rms:firebrick",
+  "experience": 0.0,
+  "cookingtime": 200
+}

@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "xxx",
+    "x#x",
+    "xxx"
+  ],
+  "key":
+  {
+    "x":
+    {
+      "item": "minecraft:glowstone"
+    },
+    "#":
+    {
+      "item":  "rms:blood_diamond"
+    }
+  },
+  "result":
+  {
+    "item": "rms:energized_blood_diamond",
+    "count": 1
+  }
+}

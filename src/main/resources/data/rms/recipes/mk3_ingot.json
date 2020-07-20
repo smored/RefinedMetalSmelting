@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "rms:diamond_file"
+    },
+    {
+      "item": "rms:mk2_iron_ingot"
+    }
+  ],
+  "result":
+  {
+    "item": "minecraft:iron_ingot"
+  }
+}

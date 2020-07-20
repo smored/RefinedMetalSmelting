@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:smelting",
+  "ingredient": {
+    "item": "rms:unfired_cupel"
+  },
+  "result": "rms:cupel",
+  "experience": 0.0,
+  "cookingtime": 200
+}

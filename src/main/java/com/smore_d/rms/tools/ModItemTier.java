@@ -8,7 +8,13 @@ import java.util.function.Supplier;
 
 public enum ModItemTier implements IItemTier {
 
-    MK1(1, 60, 3, 2.0f, 5, () -> {
+    // harvest level:
+    // 0 is wood and fist
+    // 1 is stone
+    // 2 is iron
+    // 3 is diamond
+
+    MK1(2, 60, 3, 2.0f, 5, () -> {
         return Ingredient.fromItems(RegistryHandler.MK1_IRON_INGOT.get());
     }),
 
@@ -18,20 +24,24 @@ public enum ModItemTier implements IItemTier {
 
     // MK3 is skipped because that material is base iron
 
-    MK4(2, 500, 6, 2.0f, 15, () -> {
+    MK4(4, 500, 6, 2.0f, 15, () -> {
         return Ingredient.fromItems(RegistryHandler.MK4_IRON_INGOT.get());
     }),
 
-    MK5(3, 2000, 10, 2.0f, 20, () -> {
+    MK5(5, 2000, 10, 2.0f, 20, () -> {
         return Ingredient.fromItems(RegistryHandler.MK5_IRON_INGOT.get());
     }),
 
-    MK6(3, 5000, 20, 2.0f, 40, () -> {
+    MK6(6, 5000, 20, 2.0f, 40, () -> {
         return Ingredient.fromItems(RegistryHandler.MK6_IRON_INGOT.get());
     }),
 
-    MK7(3, Integer.MAX_VALUE, 100, 2.0f, 80, () -> {
+    MK7(7, Integer.MAX_VALUE, 100, 2.0f, 80, () -> {
         return Ingredient.fromItems(RegistryHandler.MK7_IRON_INGOT.get());
+    }),
+
+    GOD(8, Integer.MAX_VALUE, 9999, 2.0f, 160, () -> {
+        return Ingredient.fromItems((RegistryHandler.MK7_IRON_INGOT.get()));
     });
 
     private final int harvestLevel;

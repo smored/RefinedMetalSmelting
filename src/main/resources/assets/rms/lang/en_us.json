@@ -1,7 +1,10 @@
 {
   "block.rms.porous_stone_block": "Porous Stone",
   "block.rms.blood_diamond_ore_block": "Blood Diamond Ore",
+  "block.rms.carbon_coal_ore_block": "High-Carbon Coal Ore",
+  "block.rms.kaolinite_ore_block": "Kaolinite Ore",
   "block.rms.mk2_furnace_block": "Cupellation Furnace",
+  "block.rms.mk3_furnace_block": "Pyrolysis Chamber",
 
   "item.rms.mk1_iron_ingot": "Dirty Iron Ingot",
   "item.rms.mk2_iron_ingot": "Impure Iron Ingot",
@@ -12,8 +15,24 @@
   "item.rms.mk7_iron_ingot": "Unstable Ingot",
 
   "item.rms.iron_bead": "Iron Bead",
+  "item.rms.spun_iron": "Spun Iron",
   "item.rms.blood_diamond": "Blood Diamond",
+  "item.rms.energized_blood_diamond": "Energized Blood Diamond",
   "item.rms.smore": "Herculean Smore",
+  "item.rms.carbon_coal": "High-Carbon Coal",
+  "item.rms.unfired_cupel": "Unfired Cupel",
+  "item.rms.cupel": "Fired Cupel",
+  "item.rms.kaolin": "Kaolin",
+  "item.rms.kaowool": "Kaowool",
+  "item.rms.refractory_clay": "Refractory Clay",
+  "item.rms.firebrick": "Firebrick",
+  "item.rms.lime": "Lime",
+  "item.rms.diamond_file": "Diamond File",
+  "item.rms.bone_ash": "Bone Ash",
+  "item.rms.blue_iron_aggregate": "Blue Iron Aggregate",
+
+  "item.rms.t1_frame": "Tier 1 Frame",
+  "item.rms.t2_frame": "Tier 2 Frame",
 
   "item.rms.mk1_sword": "Rusty Sword",
   "item.rms.mk1_pickaxe": "Rusty Pickaxe",
@@ -50,6 +69,7 @@
   "item.rms.mk7_shovel": "Unstable Shovel",
   "item.rms.mk7_axe": "Unstable Axe",
   "item.rms.mk7_hoe": "Unstable Hoe",
+  "item.rms.mk8_pickaxe": "Nokian God Pick",
 
   "item.rms.mk7_helmet": "Unstable Helmet",
   "item.rms.mk7_chestplate": "Unstable Chestplate",
