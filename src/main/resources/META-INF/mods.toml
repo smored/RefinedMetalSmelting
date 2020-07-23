@@ -24,7 +24,7 @@ credits="" #optional
 authors="smore_d" #optional
 
 description='''
-Adds various tiers of ore smelting that yields respective tiers of metal purities
+Adds various tiers of metal smelting that yields respective tiers of metal purities, utilizing both realistic and fantasy elements.
 '''
 
 [[dependencies.examplemod]] #optional

@@ -14,7 +14,7 @@ import org.apache.logging.log4j.Logger;
 @Mod("rms")
 public class RefinedMetalSmelting
 {
-    private static final Logger LOGGER = LogManager.getLogger();
+    public static final Logger LOGGER = LogManager.getLogger();
     public static final String MOD_ID = "rms";
 
     public RefinedMetalSmelting() {
