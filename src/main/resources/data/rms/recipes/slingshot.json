@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "b#b",
+    "s s",
+    " s "
+  ],
+  "key":
+  {
+    "b":
+    {
+      "item": "rms:blood_diamond"
+    },
+    "s":
+    {
+      "item":  "minecraft:stick"
+    },
+    "#":
+    {
+      "item": "rms:spun_iron"
+    }
+  },
+  "result":
+  {
+    "item": "rms:slingshot",
+    "count": 1
+  }
+}
