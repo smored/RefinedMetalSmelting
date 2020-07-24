@@ -2,7 +2,6 @@ package com.smore_d.rms.events;
 
 import com.smore_d.rms.RefinedMetalSmelting;
 import com.smore_d.rms.util.RegistryHandler;
-import javafx.scene.control.TextFormatter;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
