@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "rms:blocks/weak_boron_nitride_ore_block"
+  }
+}

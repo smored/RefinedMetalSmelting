@@ -30,6 +30,9 @@
   "item.rms.diamond_file": "Diamond File",
   "item.rms.bone_ash": "Bone Ash",
   "item.rms.blue_iron_aggregate": "Blue Iron Aggregate",
+  "item.rms.d_bn": "Boron Nitride Dust",
+  "item.rms.c_bn": "Cubic Boron Nitride",
+  "item.rms.w_bn": "Wurtzite Boron Nitride",
 
   "item.rms.t1_frame": "Tier 1 Frame",
   "item.rms.t2_frame": "Tier 2 Frame",
@@ -53,6 +56,9 @@
   "item.rms.mk4_shovel": "Blue Steel Shovel",
   "item.rms.mk4_axe": "Blue Steel Axe",
   "item.rms.mk4_hoe": "Blue Steel Hoe",
+
+  "item.rms.boron_sword": "Boron Nitride Sword",
+  "item.rms.boron_pickaxe": "Boron Nitride Pickaxe",
 
   "item.rms.mk5_sword": "Ultra-Dense Sword",
   "item.rms.mk5_pickaxe": "Ultra-Dense Pickaxe",

@@ -4,6 +4,7 @@ import com.smore_d.rms.RefinedMetalSmelting;
 import com.smore_d.rms.armour.ModArmourMaterial;
 import com.smore_d.rms.blocks.*;
 import com.smore_d.rms.brew.potion.PotionBleed;
+import com.smore_d.rms.items.CarbonCoal;
 import com.smore_d.rms.items.ItemBase;
 import com.smore_d.rms.tools.shootable.Slingshot;
 import com.smore_d.rms.items.Smore;
@@ -16,6 +17,8 @@ import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
+
+import java.rmi.registry.Registry;
 
 public class RegistryHandler {
 
@@ -42,7 +45,7 @@ public class RegistryHandler {
     public static final RegistryObject<Item> ENERGIZED_BLOOD_DIAMOND = ITEMS.register("energized_blood_diamond", ItemBase::new);
     public static final RegistryObject<Item> UNFIRED_CUPEL = ITEMS.register("unfired_cupel", ItemBase::new);
     public static final RegistryObject<Item> CUPEL = ITEMS.register("cupel", ItemBase::new);
-    public static final RegistryObject<Item> CARBON_COAL = ITEMS.register("carbon_coal", ItemBase::new);
+    public static final RegistryObject<Item> CARBON_COAL = ITEMS.register("carbon_coal", CarbonCoal::new);
     public static final RegistryObject<Item> KAOLIN = ITEMS.register("kaolin", ItemBase::new);
     public static final RegistryObject<Item> SPUN_IRON = ITEMS.register("spun_iron", ItemBase::new);
     public static final RegistryObject<Item> BONE_ASH = ITEMS.register("bone_ash", ItemBase::new);
@@ -59,7 +62,9 @@ public class RegistryHandler {
     public static final RegistryObject<Item> CATHODE = ITEMS.register("cathode", ItemBase::new);
     public static final RegistryObject<Item> IRON_ANODE = ITEMS.register("iron_anode", ItemBase::new);
     public static final RegistryObject<Item> AEROGEL = ITEMS.register("aerogel", ItemBase::new);
-    public static final RegistryObject<Item> BORON_NITRIDE = ITEMS.register("boron_nitride", ItemBase::new);
+    public static final RegistryObject<Item> C_BN = ITEMS.register("c_bn", ItemBase::new);
+    public static final RegistryObject<Item> W_BN = ITEMS.register("w_bn", ItemBase::new);
+    public static final RegistryObject<Item> D_BN = ITEMS.register("d_bn", ItemBase::new);
 
     // Food subcategory
     public static final RegistryObject<Smore> SMORE = ITEMS.register("smore", Smore::new);
@@ -100,6 +105,11 @@ public class RegistryHandler {
             new AxeItem(ModItemTier.MK4, 7, -3.1f, new Item.Properties().group(RefinedMetalSmelting.TAB)));
     public static final RegistryObject<HoeItem> MK4_HOE = ITEMS.register("mk4_hoe", () ->
             new HoeItem(ModItemTier.MK4, 0, new Item.Properties().group(RefinedMetalSmelting.TAB)));
+
+    public static final RegistryObject<SwordItem> BORON_SWORD = ITEMS.register("boron_sword", () ->
+            new SwordItem(ModItemTier.BN, 17, -2.4f, new Item.Properties().group(RefinedMetalSmelting.TAB)));
+    public static final RegistryObject<PickaxeItem> BORON_PICKAXE = ITEMS.register("boron_pickaxe", () ->
+            new PickaxeItem(ModItemTier.BN, 0, -2.8f, new Item.Properties().group(RefinedMetalSmelting.TAB)));
 
     public static final RegistryObject<SwordItem> MK5_SWORD = ITEMS.register("mk5_sword", () ->
             new SwordItem(ModItemTier.MK5, 5, -2.4f, new Item.Properties().group(RefinedMetalSmelting.TAB)));
@@ -151,11 +161,14 @@ public class RegistryHandler {
     public static final RegistryObject<Block> MK2_FURNACE_BLOCK = BLOCKS.register("mk2_furnace_block", Mk2FurnaceBlock::new);
     public static final RegistryObject<Block> MK3_FURNACE_BLOCK = BLOCKS.register("mk3_furnace_block", Mk3FurnaceBlock::new);
     public static final RegistryObject<Block> ELECTROLYTIC_BLOCK = BLOCKS.register("electrolytic_block", ElectrolyticRefinery::new);
+    //public static final RegistryObject<Block> BLAST_CHAMBER_BLOCK = BLOCKS.register("blast_chamber_block", );
         //register zone refinery
     public static final RegistryObject<Block> POROUS_STONE_BLOCK = BLOCKS.register("porous_stone_block", PorousStoneBlock::new);
     public static final RegistryObject<Block> BLOOD_DIAMOND_ORE_BLOCK = BLOCKS.register("blood_diamond_ore_block", BloodDiamondOreBlock::new);
     public static final RegistryObject<Block> CARBON_COAL_ORE_BLOCK = BLOCKS.register("carbon_coal_ore_block", CarbonCoalOreBlock::new);
     public static final RegistryObject<Block> KAOLINITE_ORE_BLOCK = BLOCKS.register("kaolinite_ore_block", KaoliniteOreBlock::new);
+    public static final RegistryObject<Block> BORON_NITRIDE_ORE_BLOCK = BLOCKS.register("boron_nitride_ore_block", BoronNitrideOreBlock::new);
+    public static final RegistryObject<Block> WEAK_BORON_NITRIDE_ORE_BLOCK = BLOCKS.register("weak_boron_nitride_ore_block", WeakBoronNitrideOreBlock::new);
 
     // Block Items
     public static final RegistryObject<Item> MK2_FURNACE_BLOCK_ITEM = ITEMS.register("mk2_furnace_block", () -> new BlockItemBase(MK2_FURNACE_BLOCK.get()));
@@ -165,6 +178,8 @@ public class RegistryHandler {
     public static final RegistryObject<Item> BLOOD_DIAMOND_ORE_BLOCK_ITEM = ITEMS.register("blood_diamond_ore_block", () -> new BlockItemBase(BLOOD_DIAMOND_ORE_BLOCK.get()));
     public static final RegistryObject<Item> CARBON_COAL_ORE_BLOCK_ITEM = ITEMS.register("carbon_coal_ore_block", () -> new BlockItemBase(CARBON_COAL_ORE_BLOCK.get()));
     public static final RegistryObject<Item> KAOLINITE_ORE_BLOCK_ITEM = ITEMS.register("kaolinite_ore_block", () -> new BlockItemBase(KAOLINITE_ORE_BLOCK.get()));
+    public static final RegistryObject<Item> BORON_NITRIDE_ORE_BLOCK_ITEM = ITEMS.register("boron_nitride_ore_block", () -> new BlockItemBase(BORON_NITRIDE_ORE_BLOCK.get()));
+    public static final RegistryObject<Item> WEAK_BORON_NITRIDE_ORE_BLOCK_ITEM = ITEMS.register("weak_boron_nitride_ore_block", () -> new BlockItemBase(WEAK_BORON_NITRIDE_ORE_BLOCK.get()));
 
     // Effects (WIP)
     public static final RegistryObject<Effect> BLEED = POTIONS.register("bleed", PotionBleed::new);

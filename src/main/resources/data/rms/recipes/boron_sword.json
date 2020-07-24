@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    " # ",
+    " # ",
+    " s "
+  ],
+  "key":
+  {
+    "#":
+    {
+      "item": "rms:c_bn"
+    },
+    "s":
+    {
+      "item": "minecraft:stick"
+    }
+  },
+  "result":
+  {
+    "item": "rms:boron_sword",
+    "count": 1
+  }
+}

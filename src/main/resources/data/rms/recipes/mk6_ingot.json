@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "#x#",
+    "x#x",
+    "#x#"
+  ],
+  "key":
+  {
+    "#":
+    {
+      "item": "rms:mk5_iron_ingot"
+    },
+    "x":
+    {
+      "item":  "rms:w_bn"
+    }
+  },
+  "result":
+  {
+    "item": "rms:mk6_iron_ingot",
+    "count": 5
+  }
+}

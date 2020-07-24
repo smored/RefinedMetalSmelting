@@ -32,6 +32,8 @@ public enum ModItemTier implements IItemTier {
         return Ingredient.fromItems(RegistryHandler.MK5_IRON_INGOT.get());
     }),
 
+    BN(5, 1, 40, 2.0f, 0, null),
+
     MK6(6, 4000, 20, 2.0f, 40, () -> {
         return Ingredient.fromItems(RegistryHandler.MK6_IRON_INGOT.get());
     }),

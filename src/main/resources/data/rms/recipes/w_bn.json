@@ -1,0 +1,21 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "###",
+    "# #",
+    "###"
+  ],
+  "key":
+  {
+    "#":
+    {
+      "item": "rms:d_bn"
+    }
+  },
+  "result":
+  {
+    "item": "rms:w_bn",
+    "count": 8
+  }
+}

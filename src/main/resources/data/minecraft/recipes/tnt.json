@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "X#X",
+    "#N#",
+    "X#X"
+  ],
+  "key": {
+    "#": [
+      {
+        "item": "minecraft:sand"
+      },
+      {
+        "item": "minecraft:red_sand"
+      }
+    ],
+    "X": {
+      "item": "minecraft:gunpowder"
+    },
+    "N": [
+      {
+        "item": "rms:mk4_iron_ingot"
+      }
+    ]
+  },
+  "result": {
+    "item": "minecraft:tnt",
+    "count": 4
+  }
+}

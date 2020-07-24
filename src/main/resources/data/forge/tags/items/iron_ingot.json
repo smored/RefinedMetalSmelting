@@ -1,0 +1,10 @@
+{
+  "replace": false,
+  "values": [
+    "minecraft:iron_ingot",
+    "rms:mk4_iron_ingot",
+    "rms:mk5_iron_ingot",
+    "rms:mk6_iron_ingot",
+    "rms:mk7_iron_ingot"
+  ]
+}
