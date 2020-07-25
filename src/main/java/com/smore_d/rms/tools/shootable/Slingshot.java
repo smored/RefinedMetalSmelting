@@ -37,7 +37,7 @@ public class Slingshot extends BowItem {
     }
 
     @Override
-    public AbstractArrowEntity customeArrow(AbstractArrowEntity arrow) {
+    public AbstractArrowEntity customArrow(AbstractArrowEntity arrow) {
         return arrow;
     }
 

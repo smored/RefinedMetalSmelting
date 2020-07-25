@@ -18,6 +18,7 @@ public class BoronNitrideOreBlock extends OreBlock {
                 .sound(SoundType.STONE)
                 .harvestLevel(5)
                 .harvestTool(ToolType.PICKAXE)
+                .setRequiresTool()
         );
     }
 

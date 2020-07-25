@@ -22,9 +22,9 @@ import java.rmi.registry.Registry;
 
 public class RegistryHandler {
 
-    public static final DeferredRegister<Item> ITEMS = new DeferredRegister<>(ForgeRegistries.ITEMS, RefinedMetalSmelting.MOD_ID);
-    public static final DeferredRegister<Block> BLOCKS = new DeferredRegister<>(ForgeRegistries.BLOCKS, RefinedMetalSmelting.MOD_ID);
-    public static final DeferredRegister<Effect> POTIONS = new DeferredRegister<>(ForgeRegistries.POTIONS, RefinedMetalSmelting.MOD_ID);
+    public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, RefinedMetalSmelting.MOD_ID);
+    public static final DeferredRegister<Block> BLOCKS = DeferredRegister.create(ForgeRegistries.BLOCKS, RefinedMetalSmelting.MOD_ID);
+    public static final DeferredRegister<Effect> POTIONS = DeferredRegister.create(ForgeRegistries.POTIONS, RefinedMetalSmelting.MOD_ID);
 
 
     public static void init() {
@@ -79,7 +79,7 @@ public class RegistryHandler {
     public static final RegistryObject<AxeItem> MK1_AXE = ITEMS.register("mk1_axe", () ->
             new AxeItem(ModItemTier.MK1, 3, -3.1f, new Item.Properties().group(RefinedMetalSmelting.TAB)));
     public static final RegistryObject<HoeItem> MK1_HOE = ITEMS.register("mk1_hoe", () ->
-            new HoeItem(ModItemTier.MK1, 0, new Item.Properties().group(RefinedMetalSmelting.TAB)));
+            new HoeItem(ModItemTier.MK1, 0, 0, new Item.Properties().group(RefinedMetalSmelting.TAB)));
 
     public static final RegistryObject<SwordItem> MK2_SWORD = ITEMS.register("mk2_sword", () ->
             new SwordItem(ModItemTier.MK2, 3, -2.4f, new Item.Properties().group(RefinedMetalSmelting.TAB)));
@@ -90,7 +90,7 @@ public class RegistryHandler {
     public static final RegistryObject<AxeItem> MK2_AXE = ITEMS.register("mk2_axe", () ->
             new AxeItem(ModItemTier.MK2, 4, -3.1f, new Item.Properties().group(RefinedMetalSmelting.TAB)));
     public static final RegistryObject<HoeItem> MK2_HOE = ITEMS.register("mk2_hoe", () ->
-            new HoeItem(ModItemTier.MK2, 0, new Item.Properties().group(RefinedMetalSmelting.TAB)));
+            new HoeItem(ModItemTier.MK2, 0, 0, new Item.Properties().group(RefinedMetalSmelting.TAB)));
 
     public static final RegistryObject<BowItem> SLINGSHOT = ITEMS.register("slingshot", () ->
             new Slingshot(IRON_BEAD.get(), new Item.Properties().group((RefinedMetalSmelting.TAB))));
@@ -104,7 +104,7 @@ public class RegistryHandler {
     public static final RegistryObject<AxeItem> MK4_AXE = ITEMS.register("mk4_axe", () ->
             new AxeItem(ModItemTier.MK4, 7, -3.1f, new Item.Properties().group(RefinedMetalSmelting.TAB)));
     public static final RegistryObject<HoeItem> MK4_HOE = ITEMS.register("mk4_hoe", () ->
-            new HoeItem(ModItemTier.MK4, 0, new Item.Properties().group(RefinedMetalSmelting.TAB)));
+            new HoeItem(ModItemTier.MK4, 0, 0, new Item.Properties().group(RefinedMetalSmelting.TAB)));
 
     public static final RegistryObject<SwordItem> BORON_SWORD = ITEMS.register("boron_sword", () ->
             new SwordItem(ModItemTier.BN, 17, -2.4f, new Item.Properties().group(RefinedMetalSmelting.TAB)));
@@ -120,7 +120,7 @@ public class RegistryHandler {
     public static final RegistryObject<AxeItem> MK5_AXE = ITEMS.register("mk5_axe", () ->
             new AxeItem(ModItemTier.MK5, 8, -3.1f, new Item.Properties().group(RefinedMetalSmelting.TAB)));
     public static final RegistryObject<HoeItem> MK5_HOE = ITEMS.register("mk5_hoe", () ->
-            new HoeItem(ModItemTier.MK5, 0, new Item.Properties().group(RefinedMetalSmelting.TAB)));
+            new HoeItem(ModItemTier.MK5, 0, 0, new Item.Properties().group(RefinedMetalSmelting.TAB)));
     
     public static final RegistryObject<SwordItem> MK6_SWORD = ITEMS.register("mk6_sword", () ->
             new SwordItem(ModItemTier.MK6, 6, -2.4f, new Item.Properties().group(RefinedMetalSmelting.TAB)));
@@ -131,7 +131,7 @@ public class RegistryHandler {
     public static final RegistryObject<AxeItem> MK6_AXE = ITEMS.register("mk6_axe", () ->
             new AxeItem(ModItemTier.MK6, 9, -3.1f, new Item.Properties().group(RefinedMetalSmelting.TAB)));
     public static final RegistryObject<HoeItem> MK6_HOE = ITEMS.register("mk6_hoe", () ->
-            new HoeItem(ModItemTier.MK6, 0, new Item.Properties().group(RefinedMetalSmelting.TAB)));
+            new HoeItem(ModItemTier.MK6, 0, 0, new Item.Properties().group(RefinedMetalSmelting.TAB)));
 
     public static final RegistryObject<SwordItem> MK7_SWORD = ITEMS.register("mk7_sword", () ->
             new SwordItem(ModItemTier.MK7, 7, -2.4f, new Item.Properties().group(RefinedMetalSmelting.TAB)));
@@ -142,7 +142,7 @@ public class RegistryHandler {
     public static final RegistryObject<AxeItem> MK7_AXE = ITEMS.register("mk7_axe", () ->
             new AxeItem(ModItemTier.MK7, 10, -3.1f, new Item.Properties().group(RefinedMetalSmelting.TAB)));
     public static final RegistryObject<HoeItem> MK7_HOE = ITEMS.register("mk7_hoe", () ->
-            new HoeItem(ModItemTier.MK7, 0, new Item.Properties().group(RefinedMetalSmelting.TAB)));
+            new HoeItem(ModItemTier.MK7, 0, 0, new Item.Properties().group(RefinedMetalSmelting.TAB)));
 
     public static final RegistryObject<PickaxeItem> MK8_PICKAXE = ITEMS.register("mk8_pickaxe", () ->
             new PickaxeItem(ModItemTier.GOD, 996, -2.8f, new Item.Properties().group(RefinedMetalSmelting.TAB)));

@@ -18,6 +18,7 @@ public class KaoliniteOreBlock extends OreBlock {
                 .sound(SoundType.STONE)
                 .harvestLevel(2)
                 .harvestTool(ToolType.PICKAXE)
+                .setRequiresTool()
         );
     }
 

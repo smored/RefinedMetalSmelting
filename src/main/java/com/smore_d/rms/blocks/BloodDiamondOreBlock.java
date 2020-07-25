@@ -18,6 +18,8 @@ public class BloodDiamondOreBlock extends OreBlock {
                 .sound(SoundType.STONE)
                 .harvestLevel(6)
                 .harvestTool(ToolType.PICKAXE)
+                .setRequiresTool()
+                .setLightLevel(value -> 15)
         );
     }
 

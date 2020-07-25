@@ -1,6 +1,9 @@
 package com.smore_d.rms;
 
+import com.smore_d.rms.entities.IronPigEntity;
+import com.smore_d.rms.init.ModEntityTypes;
 import com.smore_d.rms.util.RegistryHandler;
+import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
@@ -26,7 +29,9 @@ public class RefinedMetalSmelting
         MinecraftForge.EVENT_BUS.register(this);
     }
 
-    private void setup(final FMLCommonSetupEvent event) {}
+    private void setup(final FMLCommonSetupEvent event) {
+
+    }
 
     private void doClientStuff(final FMLClientSetupEvent event) {}
 

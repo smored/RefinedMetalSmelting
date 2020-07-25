@@ -18,6 +18,7 @@ public class WeakBoronNitrideOreBlock extends OreBlock {
                 .sound(SoundType.STONE)
                 .harvestLevel(4)
                 .harvestTool(ToolType.PICKAXE)
+                .setRequiresTool()
         );
     }
 

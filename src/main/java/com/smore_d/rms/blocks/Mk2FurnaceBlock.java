@@ -14,6 +14,7 @@ public class Mk2FurnaceBlock extends Block {
                 .sound(SoundType.STONE)
                 .harvestLevel(1)
                 .harvestTool(ToolType.PICKAXE)
+                .setRequiresTool()
         );
     }
 

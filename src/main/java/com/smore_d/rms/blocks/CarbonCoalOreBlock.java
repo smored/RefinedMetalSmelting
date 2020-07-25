@@ -18,6 +18,7 @@ public class CarbonCoalOreBlock extends OreBlock {
                 .sound(SoundType.STONE)
                 .harvestLevel(1)
                 .harvestTool(ToolType.PICKAXE)
+                .setRequiresTool()
         );
     }
 
