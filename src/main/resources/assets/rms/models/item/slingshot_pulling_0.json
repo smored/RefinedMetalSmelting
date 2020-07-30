@@ -1,6 +1,7 @@
 {
-  "parent": "item/generated",
+  "parent": "item/bow",
   "textures": {
     "layer0": "rms:items/slingshot_pulling_0"
-  }
+  },
+  "overrides": []
 }

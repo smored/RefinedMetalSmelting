@@ -4,12 +4,16 @@ import com.smore_d.rms.RefinedMetalSmelting;
 import com.smore_d.rms.armour.ModArmourMaterial;
 import com.smore_d.rms.blocks.*;
 import com.smore_d.rms.brew.potion.PotionBleed;
+import com.smore_d.rms.entities.IronBallEntity;
 import com.smore_d.rms.items.CarbonCoal;
 import com.smore_d.rms.items.ItemBase;
+import com.smore_d.rms.items.Swordsplosion;
 import com.smore_d.rms.tools.shootable.Slingshot;
 import com.smore_d.rms.items.Smore;
 import com.smore_d.rms.tools.ModItemTier;
 import net.minecraft.block.Block;
+import net.minecraft.entity.EntityClassification;
+import net.minecraft.entity.EntityType;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.*;
 import net.minecraft.potion.Effect;
@@ -65,6 +69,7 @@ public class RegistryHandler {
     public static final RegistryObject<Item> C_BN = ITEMS.register("c_bn", ItemBase::new);
     public static final RegistryObject<Item> W_BN = ITEMS.register("w_bn", ItemBase::new);
     public static final RegistryObject<Item> D_BN = ITEMS.register("d_bn", ItemBase::new);
+    public static final RegistryObject<Item> PIG_IRON = ITEMS.register("pig_iron", ItemBase::new);
 
     // Food subcategory
     public static final RegistryObject<Smore> SMORE = ITEMS.register("smore", Smore::new);
@@ -92,7 +97,7 @@ public class RegistryHandler {
     public static final RegistryObject<HoeItem> MK2_HOE = ITEMS.register("mk2_hoe", () ->
             new HoeItem(ModItemTier.MK2, 0, 0, new Item.Properties().group(RefinedMetalSmelting.TAB)));
 
-    public static final RegistryObject<BowItem> SLINGSHOT = ITEMS.register("slingshot", () ->
+    public static final RegistryObject<Item> SLINGSHOT = ITEMS.register("slingshot", () ->
             new Slingshot(IRON_BEAD.get(), new Item.Properties().group((RefinedMetalSmelting.TAB))));
 
     public static final RegistryObject<SwordItem> MK4_SWORD = ITEMS.register("mk4_sword", () ->
@@ -147,6 +152,9 @@ public class RegistryHandler {
     public static final RegistryObject<PickaxeItem> MK8_PICKAXE = ITEMS.register("mk8_pickaxe", () ->
             new PickaxeItem(ModItemTier.GOD, 996, -2.8f, new Item.Properties().group(RefinedMetalSmelting.TAB)));
 
+    public static final RegistryObject<SwordItem> SWORDSPLOSION = ITEMS.register("swordsplosion", () ->
+            new Swordsplosion(ModItemTier.GOD, 39, -2.8f, new Item.Properties().group(RefinedMetalSmelting.TAB)));
+
     // Armour
     public static final RegistryObject<ArmorItem> MK7_HELMET = ITEMS.register("mk7_helmet", () ->
             new ArmorItem(ModArmourMaterial.MK7, EquipmentSlotType.HEAD, new Item.Properties().group(RefinedMetalSmelting.TAB)));
@@ -183,6 +191,5 @@ public class RegistryHandler {
 
     // Effects (WIP)
     public static final RegistryObject<Effect> BLEED = POTIONS.register("bleed", PotionBleed::new);
-
 
 }

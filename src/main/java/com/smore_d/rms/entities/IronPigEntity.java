@@ -55,22 +55,22 @@ public class IronPigEntity extends AnimalEntity {
 
     @Override
     protected SoundEvent getAmbientSound() {
-        return SoundEvents.BLOCK_ANVIL_STEP;
+        return SoundEvents.ENTITY_IRON_GOLEM_REPAIR;
     }
 
     @Override
     protected SoundEvent getDeathSound() {
-        return SoundEvents.BLOCK_ANVIL_DESTROY;
+        return SoundEvents.ENTITY_IRON_GOLEM_DEATH;
     }
 
     @Override
     protected SoundEvent getHurtSound(DamageSource damageSourceIn) {
-        return SoundEvents.BLOCK_ANVIL_HIT;
+        return SoundEvents.BLOCK_ANVIL_PLACE;
     }
 
     @Override
     protected void playStepSound(BlockPos pos, BlockState blockIn) {
-        this.playSound(SoundEvents.BLOCK_METAL_BREAK, 0.5F, 1.0F);
+        this.playSound(SoundEvents.BLOCK_METAL_PLACE, 0.5F, 1.0F);
     }
 
     @Override

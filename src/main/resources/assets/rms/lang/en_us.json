@@ -49,7 +49,7 @@
   "item.rms.mk2_axe": "Dull Axe",
   "item.rms.mk2_hoe": "Dull Hoe",
 
-  "item.rms.slingshot": "",
+  "item.rms.slingshot": "Glock 17",
 
   "item.rms.mk4_sword": "Blue Steel Sword",
   "item.rms.mk4_pickaxe": "Blue Steel Pickaxe",
@@ -72,17 +72,22 @@
   "item.rms.mk6_axe": "Dark Axe",
   "item.rms.mk6_hoe": "Dark Hoe",
 
-  "item.rms.mk7_sword": "Unstable Sword",
+  "item.rms.mk7_sword": "Hexdrinker",
   "item.rms.mk7_pickaxe": "Unstable Pickaxe",
   "item.rms.mk7_shovel": "Unstable Shovel",
   "item.rms.mk7_axe": "Unstable Axe",
   "item.rms.mk7_hoe": "Unstable Hoe",
   "item.rms.mk8_pickaxe": "Nokian God Pick",
 
+  "item.rms.swordsplosion": "SWORDSPLOSION!!!",
+
   "item.rms.mk7_helmet": "Unstable Helmet",
   "item.rms.mk7_chestplate": "Unstable Chestplate",
   "item.rms.mk7_leggings": "Unstable Leggings",
   "item.rms.mk7_boots": "Unstable Boots",
+
+  "entity.rms.iron_pig": "Iron Pig",
+  "item.rms.pig_iron": "Pig Iron",
 
   "itemGroup.rmsTab": "Refined Metal Smelting"
 }

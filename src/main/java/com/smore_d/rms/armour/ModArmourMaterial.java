@@ -17,7 +17,7 @@ import java.util.function.Supplier;
 public enum ModArmourMaterial implements IArmorMaterial {
 
     //                                                                        helmet, leggings, chestplate, boots
-    MK7(RefinedMetalSmelting.MOD_ID + ":mk7", 50, new int[] {4, 7, 8, 4}, 80, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 2.0F, 1.0f, () ->
+    MK7(RefinedMetalSmelting.MOD_ID + ":mk7", 120, new int[] {8, 14, 16, 8}, 80, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 4.0F, 0.5f, () ->
     { return Ingredient.fromItems(RegistryHandler.MK7_IRON_INGOT.get()); });
 
     private static final int[] MAX_DAMAGE_ARRAY = new int[] {11, 16, 15, 13};

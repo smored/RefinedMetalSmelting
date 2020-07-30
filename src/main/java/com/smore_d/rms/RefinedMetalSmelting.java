@@ -1,12 +1,15 @@
 package com.smore_d.rms;
 
+import com.smore_d.rms.entities.IronBallEntity;
 import com.smore_d.rms.entities.IronPigEntity;
 import com.smore_d.rms.init.ModEntityTypes;
 import com.smore_d.rms.util.RegistryHandler;
 import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
+import net.minecraft.util.concurrent.TickDelayedTask;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.fml.DeferredWorkQueue;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
@@ -25,12 +28,15 @@ public class RefinedMetalSmelting
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
 
         RegistryHandler.init();
+        ModEntityTypes.ENTITY_TYPES.register(FMLJavaModLoadingContext.get().getModEventBus());
 
         MinecraftForge.EVENT_BUS.register(this);
     }
 
     private void setup(final FMLCommonSetupEvent event) {
-
+        DeferredWorkQueue.runLater(() -> {
+             GlobalEntityTypeAttributes.put(ModEntityTypes.IRON_PIG.get(), IronPigEntity.setCustomAttributes().create());
+        });
     }
 
     private void doClientStuff(final FMLClientSetupEvent event) {}

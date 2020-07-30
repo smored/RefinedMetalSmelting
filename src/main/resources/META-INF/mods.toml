@@ -9,7 +9,7 @@ issueTrackerURL="https://github.com/smored/RefinedMetalSmelting" #optional
 
 modId="rms" #mandatory
 
-version="1.15.2-1.0.0" #mandatory
+version="1.16.1-1.0.1" #mandatory
 
 displayName="Refined Metal Smelting" #mandatory
 
@@ -19,7 +19,7 @@ displayURL="https://github.com/smored/RefinedMetalSmelting" #optional
 
 logoFile="rmslogo.png" #optional
 
-credits="" #optional
+credits="smore_d, NitroPan" #optional
 
 authors="smore_d" #optional
 
