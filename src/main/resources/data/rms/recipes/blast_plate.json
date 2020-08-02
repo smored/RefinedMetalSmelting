@@ -1,0 +1,29 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "bbb",
+    "kkk",
+    "ggg"
+  ],
+  "key":
+  {
+    "b":
+    {
+      "item": "rms:mk4_iron_ingot"
+    },
+    "k":
+    {
+      "item": "rms:kaowool"
+    },
+    "g":
+    {
+      "item": "minecraft:gold_ingot"
+    }
+  },
+  "result":
+  {
+    "item": "rms:blast_plate",
+    "count": 1
+  }
+}

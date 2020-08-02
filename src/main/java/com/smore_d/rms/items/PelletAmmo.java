@@ -1,4 +1,4 @@
-package com.smore_d.rms.tools.shootable;
+package com.smore_d.rms.items;
 
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;

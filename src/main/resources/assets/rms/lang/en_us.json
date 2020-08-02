@@ -18,7 +18,7 @@
   "item.rms.spun_iron": "Spun Iron",
   "item.rms.blood_diamond": "Blood Diamond",
   "item.rms.energized_blood_diamond": "Energized Blood Diamond",
-  "item.rms.smore": "Herculean Smore",
+  "item.rms.smore": "test",
   "item.rms.carbon_coal": "High-Carbon Coal",
   "item.rms.unfired_cupel": "Unfired Cupel",
   "item.rms.cupel": "Fired Cupel",
@@ -72,7 +72,7 @@
   "item.rms.mk6_axe": "Dark Axe",
   "item.rms.mk6_hoe": "Dark Hoe",
 
-  "item.rms.mk7_sword": "Hexdrinker",
+  "item.rms.mk7_sword": "Unstable Sword",
   "item.rms.mk7_pickaxe": "Unstable Pickaxe",
   "item.rms.mk7_shovel": "Unstable Shovel",
   "item.rms.mk7_axe": "Unstable Axe",
@@ -85,6 +85,11 @@
   "item.rms.mk7_chestplate": "Unstable Chestplate",
   "item.rms.mk7_leggings": "Unstable Leggings",
   "item.rms.mk7_boots": "Unstable Boots",
+
+  "item.rms.blast_helmet": "Blast Helmet",
+  "item.rms.blast_chestplate": "Blast Chestplate",
+  "item.rms.blast_leggings": "Blast Leggings",
+  "item.rms.blast_boots": "Blast Boots",
 
   "entity.rms.iron_pig": "Iron Pig",
   "item.rms.pig_iron": "Pig Iron",

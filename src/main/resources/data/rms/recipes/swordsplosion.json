@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "ttt",
+    "tst",
+    "ttt"
+  ],
+  "key":
+  {
+    "t":
+    {
+      "item": "minecraft:tnt"
+    },
+    "s":
+    {
+      "item":  "rms:mk7_sword"
+    }
+  },
+  "result":
+  {
+    "item": "rms:swordsplosion",
+    "count": 1
+  }
+}

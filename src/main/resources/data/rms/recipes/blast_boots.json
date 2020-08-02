@@ -1,0 +1,25 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern":
+  [
+    "   ",
+    "k k",
+    "kbk"
+  ],
+  "key":
+  {
+    "b":
+    {
+      "item": "rms:blast_plate"
+    },
+    "k":
+    {
+      "item": "rms:kaowool"
+    }
+  },
+  "result":
+  {
+    "item": "rms:blast_boots",
+    "count": 1
+  }
+}

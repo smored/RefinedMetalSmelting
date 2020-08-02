@@ -1,12 +1,19 @@
 package com.smore_d.rms.items;
 
 import com.smore_d.rms.RefinedMetalSmelting;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.item.Food;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Rarity;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.StringTextComponent;
+import net.minecraft.world.World;
+
+import javax.annotation.Nullable;
+import java.util.List;
 
 public class Smore extends Item {
 
@@ -23,8 +30,16 @@ public class Smore extends Item {
     }
 
     @Override
-    public Rarity getRarity(ItemStack stack) {
-        return Rarity.UNCOMMON;
+    public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
+
+        tooltip.set(0, new StringTextComponent("\u00A76" + "test"));
+
+        super.addInformation(stack, worldIn, tooltip, flagIn);
     }
+
+    //    @Override
+//    public Rarity getRarity(ItemStack stack) {
+//        return Rarity.UNCOMMON;
+//    }
 
 }

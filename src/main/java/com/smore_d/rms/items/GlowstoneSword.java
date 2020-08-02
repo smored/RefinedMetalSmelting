@@ -13,10 +13,10 @@ import org.jline.style.StyleColor;
 
 import java.util.List;
 
-public class Swordsplosion extends SwordItem {
+public class GlowstoneSword extends SwordItem {
 
 
-    public Swordsplosion(IItemTier tier, int attackDamageIn, float attackSpeedIn, Properties builderIn) {
+    public GlowstoneSword(IItemTier tier, int attackDamageIn, float attackSpeedIn, Properties builderIn) {
         super(tier, attackDamageIn, attackSpeedIn, builderIn);
     }
 
@@ -25,20 +25,12 @@ public class Swordsplosion extends SwordItem {
     public void addInformation(ItemStack stack, World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
 
 
-        tooltip.set(0, new StringTextComponent("\u00A7d" + "SWORDSPLOSION!!!"));
-        tooltip.add(new StringTextComponent("\u00A7f" + "- " + "\u00A7c" + "Because Mister Torgue Said So"));
-        tooltip.add(new StringTextComponent("\u00A7f" + "- " + "\u00A7f" + "+500% Weapon Damage"));
-        tooltip.add(new StringTextComponent("\u00A7f" + "- " + "\u00A7f" + "Deals bonus" + "\u00A7e" + " explosive " + "\u00A7f" + "damage"));
+        tooltip.set(0, new StringTextComponent("\u00A79" + "Glowstone Sword"));
+        tooltip.add(new StringTextComponent("\u00A7f" + "- " + "\u00A7f" + "Glows in the dark"));
+        tooltip.add(new StringTextComponent("\u00A7f" + "- " + "\u00A7f" + "Deals bonus" + "\u00A7b" + " holy " + "\u00A7f" + "damage"));
 
         super.addInformation(stack, worldIn, tooltip, flagIn);
     }
-
-
-
-//    @Override
-//    public Rarity getRarity(ItemStack stack) {
-//        return Rarity.EPIC;
-//    }
 
 
 }

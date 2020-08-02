@@ -1,10 +1,11 @@
-package com.smore_d.rms.armour;
+package com.smore_d.rms.util.enums;
 
 import com.smore_d.rms.RefinedMetalSmelting;
-import com.smore_d.rms.util.RegistryHandler;
+import com.smore_d.rms.init.ModItems;
 import net.minecraft.client.audio.Sound;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.IArmorMaterial;
+import net.minecraft.item.Items;
 import net.minecraft.item.crafting.Ingredient;
 import net.minecraft.util.SoundEvent;
 import net.minecraft.util.SoundEvents;
@@ -12,13 +13,17 @@ import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.api.distmarker.OnlyIn;
 
 import java.rmi.registry.Registry;
+import java.rmi.registry.RegistryHandler;
 import java.util.function.Supplier;
 
 public enum ModArmourMaterial implements IArmorMaterial {
 
     //                                                                        helmet, leggings, chestplate, boots
-    MK7(RefinedMetalSmelting.MOD_ID + ":mk7", 120, new int[] {8, 14, 16, 8}, 80, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 4.0F, 0.5f, () ->
-    { return Ingredient.fromItems(RegistryHandler.MK7_IRON_INGOT.get()); });
+    MK7(RefinedMetalSmelting.MOD_ID + ":mk7", 120, new int[] {8, 14, 16, 8}, 80, SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND, 4.0F, 0.5F, () ->
+    { return Ingredient.fromItems(ModItems.MK7_IRON_INGOT.get()); }),
+
+    BLAST(RefinedMetalSmelting.MOD_ID + ":blast", 25, new int[] {1, 3, 4, 1}, 10, SoundEvents.ITEM_ARMOR_EQUIP_CHAIN, 0.0F, 0.0F, () ->
+    { return Ingredient.fromItems(Items.IRON_INGOT); });
 
     private static final int[] MAX_DAMAGE_ARRAY = new int[] {11, 16, 15, 13};
     private final String name;

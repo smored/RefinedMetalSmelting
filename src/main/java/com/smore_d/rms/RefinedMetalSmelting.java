@@ -2,8 +2,9 @@ package com.smore_d.rms;
 
 import com.smore_d.rms.entities.IronBallEntity;
 import com.smore_d.rms.entities.IronPigEntity;
+import com.smore_d.rms.init.ModBlocks;
 import com.smore_d.rms.init.ModEntityTypes;
-import com.smore_d.rms.util.RegistryHandler;
+import com.smore_d.rms.init.ModItems;
 import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
@@ -27,7 +28,8 @@ public class RefinedMetalSmelting
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::doClientStuff);
 
-        RegistryHandler.init();
+        ModBlocks.BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
+        ModItems.ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
         ModEntityTypes.ENTITY_TYPES.register(FMLJavaModLoadingContext.get().getModEventBus());
 
         MinecraftForge.EVENT_BUS.register(this);
@@ -45,7 +47,7 @@ public class RefinedMetalSmelting
 
         @Override
         public ItemStack createIcon() {
-            return new ItemStack(RegistryHandler.MK7_SWORD.get());
+            return new ItemStack(ModItems.MK7_SWORD.get());
         }
     };
 }

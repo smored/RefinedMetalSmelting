@@ -1,4 +1,4 @@
-package com.smore_d.rms.tools.shootable;
+package com.smore_d.rms.items;
 
 import com.smore_d.rms.entities.IronBallEntity;
 import net.minecraft.entity.Entity;

@@ -1,6 +1,6 @@
 package com.smore_d.rms.entities;
 
-import com.smore_d.rms.util.RegistryHandler;
+import com.smore_d.rms.init.ModItems;
 import net.minecraft.entity.EntityClassification;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.IRendersAsItem;
@@ -20,6 +20,7 @@ import net.minecraftforge.api.distmarker.OnlyIn;
 import net.minecraftforge.fml.network.NetworkHooks;
 
 import javax.annotation.Nonnull;
+import java.rmi.registry.RegistryHandler;
 
 public class IronBallEntity extends ThrowableEntity implements IRendersAsItem {
     private static final DataParameter<Float> GRAVITY = EntityDataManager.createKey(IronBallEntity.class, DataSerializers.FLOAT);
@@ -48,7 +49,7 @@ public class IronBallEntity extends ThrowableEntity implements IRendersAsItem {
 
     @Override
     public ItemStack getItem() {
-        return new ItemStack(RegistryHandler.IRON_BEAD.get());
+        return new ItemStack(ModItems.IRON_BEAD.get());
     }
 
     @Nonnull
@@ -62,7 +63,7 @@ public class IronBallEntity extends ThrowableEntity implements IRendersAsItem {
     public void handleStatusUpdate(byte id) {
         if (id == 3) {
             for (int j = 0; j < 16; j++) {
-                world.addParticle(new ItemParticleData(ParticleTypes.ITEM, new ItemStack(RegistryHandler.IRON_BEAD.get())), getPosX(), getPosY(), getPosZ(), Math.random() * 0.2 - 0.1, Math.random() * 0.25, Math.random() * 0.2 - 0.1);
+                world.addParticle(new ItemParticleData(ParticleTypes.ITEM, new ItemStack(ModItems.IRON_BEAD.get())), getPosX(), getPosY(), getPosZ(), Math.random() * 0.2 - 0.1, Math.random() * 0.25, Math.random() * 0.2 - 0.1);
             }
         }
     }
