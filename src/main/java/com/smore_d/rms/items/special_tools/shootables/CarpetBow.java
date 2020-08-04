@@ -1,5 +1,7 @@
 package com.smore_d.rms.items.special_tools.shootables;
 
+import com.smore_d.rms.RefinedMetalSmelting;
+import com.smore_d.rms.entities.FastDespawnArrowEntity;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.LivingEntity;
@@ -9,6 +11,11 @@ import net.minecraft.item.*;
 import net.minecraft.stats.Stats;
 import net.minecraft.util.SoundCategory;
 import net.minecraft.util.SoundEvents;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.BlockRayTraceResult;
+import net.minecraft.util.math.RayTraceContext;
+import net.minecraft.util.math.RayTraceResult;
+import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.World;
 
 import javax.annotation.Nonnull;
@@ -70,6 +77,7 @@ public class CarpetBow extends BowItem {
                         }
 
                         //worldIn.addEntity(abstractarrowentity);
+                        shootModBow(entityLiving, worldIn, f);
                     }
 
                     worldIn.playSound((PlayerEntity)null, playerentity.getPosX(), playerentity.getPosY(), playerentity.getPosZ(), SoundEvents.ENTITY_ARROW_SHOOT, SoundCategory.PLAYERS, 1.0F, 1.0F / (random.nextFloat() * 0.4F + 1.2F) + f * 0.5F);
@@ -85,4 +93,25 @@ public class CarpetBow extends BowItem {
             }
         }
     }
+
+    private void shootModBow(LivingEntity shooter, World world, float vel) {
+
+        Vector3d eyePos = shooter.getEyePosition(1.0F);
+        BlockRayTraceResult result = shooter.getEntityWorld().rayTraceBlocks(new RayTraceContext(eyePos, shooter.getLookVec().mul(256, 256, 256).add(eyePos), RayTraceContext.BlockMode.COLLIDER, RayTraceContext.FluidMode.NONE, shooter));
+
+        if (result.getType() == RayTraceResult.Type.BLOCK) {
+            int x = new BlockPos(result.getHitVec()).getX();
+            int y = new BlockPos(result.getHitVec()).getY();
+            int z = new BlockPos(result.getHitVec()).getZ();
+            int offset = RefinedMetalSmelting.RANDOM.nextInt(90);
+
+            for (double i = 1; i < 101*vel; i++) {
+                FastDespawnArrowEntity arrowEntity = new FastDespawnArrowEntity(world, shooter);
+                arrowEntity.setPosition(x + Math.sin(Math.toRadians(i * 50 + offset)) * (i / 10D), y + 100, z + Math.cos(Math.toRadians(i * 50 + offset)) * (i / 10D));
+                arrowEntity.setVelocity(0, -i / 10D, 0);
+                world.addEntity(arrowEntity);
+            }
+        }
+    }
+
 }

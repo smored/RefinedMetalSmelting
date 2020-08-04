@@ -1,6 +1,7 @@
 package com.smore_d.rms.events;
 
 import com.smore_d.rms.RefinedMetalSmelting;
+import com.smore_d.rms.entities.FastDespawnArrowEntity;
 import com.smore_d.rms.entities.IronPigEntity;
 import com.smore_d.rms.init.*;
 import com.smore_d.rms.util.RngHelper;
@@ -47,35 +48,6 @@ import java.util.Set;
 public class ModClientEvents {
 
 
-    private static List<ArrowEntity> ArrowList = new ArrayList<>();
-
-    @SubscribeEvent
-    public static void shootModBow(ArrowLooseEvent event) {
-        if (event.getBow().getItem().equals(ModItems.CARPET_BOW.get())) {
-            World world = event.getWorld();
-            LivingEntity entity = event.getEntityLiving();
-
-            Vector3d eyePos = entity.getEyePosition(1.0F);
-            BlockRayTraceResult result = entity.getEntityWorld().rayTraceBlocks(new RayTraceContext(eyePos, entity.getLookVec().mul(256,256,256).add(eyePos), RayTraceContext.BlockMode.COLLIDER, RayTraceContext.FluidMode.NONE, entity));
-
-            System.out.println(result);
-            System.out.println(result.getType());
-
-            if(result.getType() == RayTraceResult.Type.BLOCK) {
-                int x = new BlockPos(result.getHitVec()).getX();
-                int y = new BlockPos(result.getHitVec()).getY();
-                int z = new BlockPos(result.getHitVec()).getZ();
-                int offset = RefinedMetalSmelting.RANDOM.nextInt(90);
-
-                for (double i = 1; i < 101; i++) {
-                    ArrowEntity arrowEntity = new ArrowEntity(world, entity);
-                    arrowEntity.setPosition(x + Math.sin(Math.toRadians(i*50 + offset)) * (i/10D), y+100 ,z + Math.cos(Math.toRadians(i*50 + offset)) * (i/10D));
-                    arrowEntity.setVelocity(0, -i/10D, 0);
-                    world.addEntity(arrowEntity);
-                }
-            }
-        }
-    }
 
     @SubscribeEvent
     public static void itemOnGround(EntityEvent event) {
@@ -84,7 +56,6 @@ public class ModClientEvents {
             World world = entity.getEntityWorld();
             ItemStack itemStack = ((ItemEntity) entity).getItem();
             Set set = itemStack.getItem().getTags();
-            //System.out.println(itemStack + " contains these tags: " + set);
 
             for (ResourceLocation tags : itemStack.getItem().getTags()) {
                 if (tags.toString().equals("forge:legendary")) {
@@ -112,28 +83,6 @@ public class ModClientEvents {
             }
         }
     }
-
-    @SubscribeEvent
-    public static void test(AttackEntityEvent event) {
-        if (event.getEntity() instanceof LivingEntity) {
-            LivingEntity victim = (LivingEntity) event.getEntity();
-            World world = victim.getEntityWorld();
-            RngHelper rngHelper = new RngHelper();
-
-            if (!world.isRemote()) {
-
-                Rarity rarity = rngHelper.rarityPicker();
-                Prefixes prefix = rngHelper.prefixSelector();
-                //ToolType tooltype = rngHelper.toolSelector(rarity);
-
-
-                //could try instantiating maybe?
-                //if that doesnt work we need a new way to register objects in runtime
-                //last resort is a builder but hooly fuck idk how to do those things
-            }
-        }
-    }
-
 
     @SubscribeEvent // iron boots sink you
     public static void onIronBoots(PlayerEvent event) {
