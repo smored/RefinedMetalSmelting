@@ -2,6 +2,8 @@ package com.smore_d.rms.items.special_tools.shootables;
 
 import com.smore_d.rms.RefinedMetalSmelting;
 import com.smore_d.rms.entities.FastDespawnArrowEntity;
+import com.smore_d.rms.util.enums.Rarity;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.enchantment.Enchantments;
 import net.minecraft.entity.LivingEntity;
@@ -16,9 +18,12 @@ import net.minecraft.util.math.BlockRayTraceResult;
 import net.minecraft.util.math.RayTraceContext;
 import net.minecraft.util.math.RayTraceResult;
 import net.minecraft.util.math.vector.Vector3d;
+import net.minecraft.util.text.ITextComponent;
+import net.minecraft.util.text.StringTextComponent;
 import net.minecraft.world.World;
 
 import javax.annotation.Nonnull;
+import java.util.List;
 
 public class CarpetBow extends BowItem {
 
@@ -112,6 +117,17 @@ public class CarpetBow extends BowItem {
                 world.addEntity(arrowEntity);
             }
         }
+    }
+
+    @Override
+    public void addInformation(ItemStack stack, World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
+
+
+        tooltip.set(0, new StringTextComponent(Rarity.LEGENDARY.colour + "Carpet Bow"));
+        tooltip.add(new StringTextComponent("\u00A7f" + "- " + "\u00A7c" + "\u00A7o" + "Galaxy Gun"));
+        tooltip.add(new StringTextComponent("\u00A7f" + "- " + "\u00A7f" + "Summons a mighty hail of arrows from the sky in a circular pattern"));
+
+        super.addInformation(stack, worldIn, tooltip, flagIn);
     }
 
 }

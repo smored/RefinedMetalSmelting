@@ -5,6 +5,7 @@ import com.smore_d.rms.blocks.BlockItemBase;
 import com.smore_d.rms.items.*;
 import com.smore_d.rms.items.special_tools.shootables.CarpetBow;
 import com.smore_d.rms.items.special_tools.shootables.Slingshot;
+import com.smore_d.rms.items.special_tools.swords.FumeSword;
 import com.smore_d.rms.items.special_tools.swords.GlowstoneSword;
 import com.smore_d.rms.items.special_tools.swords.Swordsplosion;
 import com.smore_d.rms.util.enums.ModArmourMaterial;
@@ -145,6 +146,9 @@ public class ModItems {
 
     public static final RegistryObject<SwordItem> GLOWSTONE_SWORD = ITEMS.register("glowstone_sword", () ->
             new GlowstoneSword(ModItemTier.MK4, 5, -2.8f, new Item.Properties().group(RefinedMetalSmelting.TAB)));
+
+    public static final RegistryObject<SwordItem> FUME_SWORD = ITEMS.register("fume_sword", () ->
+            new FumeSword(ModItemTier.MK5, 20, -3.5f, new Item.Properties().group(RefinedMetalSmelting.TAB)));
 
     // Armour
     public static final RegistryObject<ArmorItem> MK7_HELMET = ITEMS.register("mk7_helmet", () ->

@@ -22,7 +22,7 @@ public class Swordsplosion extends SwordItem {
 
 
         tooltip.set(0, new StringTextComponent(Rarity.LEGENDARY.colour + "SWORDSPLOSION!!!"));
-        tooltip.add(new StringTextComponent("\u00A7f" + "- " + "\u00A7c" + "Because Mister Torgue Said So"));
+        tooltip.add(new StringTextComponent("\u00A7f" + "- " + "\u00A7c" + "\u00A7o" + "Because Mister Torgue Said So"));
         tooltip.add(new StringTextComponent("\u00A7f" + "- " + "\u00A7f" + "+500% Weapon Damage"));
         tooltip.add(new StringTextComponent("\u00A7f" + "- " + "\u00A7f" + "Deals bonus" + "\u00A7e" + " explosive " + "\u00A7f" + "damage"));
 

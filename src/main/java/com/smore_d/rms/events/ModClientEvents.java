@@ -25,10 +25,7 @@ import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
 import net.minecraft.util.Hand;
 import net.minecraft.util.ResourceLocation;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.BlockRayTraceResult;
-import net.minecraft.util.math.RayTraceContext;
-import net.minecraft.util.math.RayTraceResult;
+import net.minecraft.util.math.*;
 import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
@@ -46,7 +43,6 @@ import java.util.Set;
 
 @Mod.EventBusSubscriber(modid = RefinedMetalSmelting.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE, value = Dist.CLIENT)
 public class ModClientEvents {
-
 
 
     @SubscribeEvent
@@ -157,10 +153,10 @@ public class ModClientEvents {
     }
 
     @SubscribeEvent // code for the swordsplosion
-    public static void onLeftClick(AttackEntityEvent event) {
-        Entity entity = event.getTarget().getEntity(); //grab entity being targeted
+    public static void onAttack(AttackEntityEvent event) {
+        Entity target = event.getTarget().getEntity(); //grab entity being targeted
         LivingEntity igniter = event.getEntityLiving(); //grab igniter
-        World world = entity.getEntityWorld(); //grab entity's world
+        World world = target.getEntityWorld(); //grab entity's world
 
         if (igniter.getHeldItemMainhand().getItem() == ModItems.SWORDSPLOSION.get()) {
             for (int i = 0; i < 100; i++) {
@@ -178,11 +174,26 @@ public class ModClientEvents {
                     z = -z;
                 }
 
-                TNTEntity tntEntity = new TNTEntity(world, entity.getPosX(), entity.getPosY(), entity.getPosZ(), igniter);
+                TNTEntity tntEntity = new TNTEntity(world, target.getPosX(), target.getPosY(), target.getPosZ(), igniter);
                 world.addEntity(tntEntity);
                 tntEntity.setInvisible(true);
                 tntEntity.addVelocity(x, y + 1, z);
                 tntEntity.setFuse(fuse);
+            }
+        } else if (igniter.getHeldItemMainhand().getItem() == ModItems.FUME_SWORD.get()) {
+            for (int i = 0; i < 100; i++) {
+                world.addParticle(ParticleTypes.LAVA,
+                        target.getPosX(),
+                        target.getPosY(),
+                        target.getPosZ(),
+                        0, 25 + RefinedMetalSmelting.RANDOM.nextInt(20) / 10D, 0);
+            }
+
+            AxisAlignedBB aabb = new AxisAlignedBB(target.getPosX() - 12, target.getPosY() - 1, target.getPosZ() - 12, target.getPosX() + 12, target.getPosY() + 1, target.getPosZ() + 12);
+            List<Entity> affectedList = world.getEntitiesWithinAABBExcludingEntity(igniter, aabb);
+
+            for (Entity current : affectedList) {
+                current.addVelocity(0.5D * (current.getPosX() - target.getPosX()), 0.5D + RefinedMetalSmelting.RANDOM.nextInt(100)/100D, 0.5D * (current.getPosZ() - target.getPosZ()));
             }
         }
     }
@@ -341,53 +352,5 @@ public class ModClientEvents {
             }
         }
     }
-
-//    @SubscribeEvent
-//    public static void onCraftSpunIron(PlayerEvent.ItemCraftedEvent event) {
-//        if (event.getCrafting().toString().equals("1 spun_iron")) {
-//            LivingEntity player = event.getEntityLiving();
-//            World world = player.getEntityWorld();
-//            world.addEntity(new ItemEntity(world, player.getPosX(), player.getPosY(), player.getPosZ(), new ItemStack(Items.SHEARS)));
-//        }
-//    }
-
-//    @SubscribeEvent
-//    public static void onShootSlingshot(ArrowLooseEvent event) {
-//        LivingEntity player = event.getEntityLiving();
-//        if (!event.getPlayer().getEntityWorld().isRemote) {
-//            if (player.getHeldItemMainhand().getItem() == RegistryHandler.SLINGSHOT.get() || player.getHeldItemOffhand().getItem() == RegistryHandler.SLINGSHOT.get()) {
-//                World world = player.getEntityWorld();
-//                world.playSound((PlayerEntity) null, player.getPosX(), player.getPosY(), player.getPosZ(), SoundEvents.BLOCK_ANVIL_PLACE, SoundCategory.PLAYERS, 1.0F, 0.50F);
-//            }
-//        }
-//    }
-
-
-//    @SubscribeEvent
-//    public static void onDamageSheep(AttackEntityEvent event) {
-//        if (event.getEntityLiving().getHeldItemMainhand().getItem() == RegistryHandler.MK4_SWORD.get()) {
-//            if (event.getTarget().isAlive()) {
-//                LivingEntity target = (LivingEntity) event.getTarget();
-//
-//                PlayerEntity player = event.getPlayer();
-//
-//
-//                if (!event.getPlayer().getEntityWorld().isRemote) {
-//                    String msg = TextFormatting.RED + "test";
-//                    player.sendMessage(new StringTextComponent(msg));
-//                    //player.sendMessage(new StringTextComponent(msg), player.getUniqueID());
-//                }
-//            }
-//        }
-//    }
-//
-//    @SubscribeEvent
-//    public static void onCraftingTableOpen(GuiOpenEvent event) {
-//        if (event.isCancelable()) {
-//            if (event.getGui() instanceof CraftingScreen) {
-//                event.setCanceled(true);
-//            }
-//        }
-//    }
 
 }
