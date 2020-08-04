@@ -1,14 +1,13 @@
 package com.smore_d.rms;
 
-import com.smore_d.rms.entities.IronBallEntity;
 import com.smore_d.rms.entities.IronPigEntity;
 import com.smore_d.rms.init.ModBlocks;
 import com.smore_d.rms.init.ModEntityTypes;
 import com.smore_d.rms.init.ModItems;
+import com.smore_d.rms.init.TestItems;
 import net.minecraft.entity.ai.attributes.GlobalEntityTypeAttributes;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.concurrent.TickDelayedTask;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.DeferredWorkQueue;
 import net.minecraftforge.fml.common.Mod;
@@ -18,11 +17,14 @@ import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
+import java.util.Random;
+
 @Mod("rms")
 public class RefinedMetalSmelting
 {
     public static final Logger LOGGER = LogManager.getLogger();
     public static final String MOD_ID = "rms";
+    public static final Random RANDOM = new Random();
 
     public RefinedMetalSmelting() {
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
@@ -31,6 +33,7 @@ public class RefinedMetalSmelting
         ModBlocks.BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
         ModItems.ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
         ModEntityTypes.ENTITY_TYPES.register(FMLJavaModLoadingContext.get().getModEventBus());
+        TestItems.ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
 
         MinecraftForge.EVENT_BUS.register(this);
     }
@@ -41,7 +44,9 @@ public class RefinedMetalSmelting
         });
     }
 
-    private void doClientStuff(final FMLClientSetupEvent event) {}
+    private void doClientStuff(final FMLClientSetupEvent event) {
+        System.out.println(ModItems.MK1_SWORD.get().getRegistryName());
+    }
 
     public static final ItemGroup TAB = new ItemGroup("rmsTab"){
 

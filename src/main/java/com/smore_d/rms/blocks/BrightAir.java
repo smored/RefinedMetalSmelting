@@ -12,6 +12,6 @@ public class BrightAir extends AirBlock {
         .setLightLevel(value -> 15));
     }
 
-
+    
 
 }

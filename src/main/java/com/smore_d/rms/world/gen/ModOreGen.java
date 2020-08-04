@@ -33,7 +33,7 @@ public class ModOreGen {
     public static void generateOres(FMLLoadCompleteEvent event) {
 
         for (Biome biome : ForgeRegistries.BIOMES) {
-
+            
             if ((biome.getCategory() != Biome.Category.NETHER) && (biome.getCategory() != Biome.Category.THEEND)) {
                 genOre(biome, 250, 0, 5, 50, OBSIDIAN, ModBlocks.BLOOD_DIAMOND_ORE_BLOCK.get().getDefaultState(), 3);
                 genOre(biome, 1000, 0, 5, 30, COAL_ORE, ModBlocks.CARBON_COAL_ORE_BLOCK.get().getDefaultState(), 3);

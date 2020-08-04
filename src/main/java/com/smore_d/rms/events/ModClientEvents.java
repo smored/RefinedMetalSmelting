@@ -2,44 +2,137 @@ package com.smore_d.rms.events;
 
 import com.smore_d.rms.RefinedMetalSmelting;
 import com.smore_d.rms.entities.IronPigEntity;
-import com.smore_d.rms.init.ModBlocks;
-import com.smore_d.rms.init.ModEntityTypes;
-import com.smore_d.rms.init.ModItems;
-import net.minecraft.advancements.criterion.ItemPredicate;
+import com.smore_d.rms.init.*;
+import com.smore_d.rms.util.RngHelper;
+import com.smore_d.rms.util.enums.Prefixes;
+import com.smore_d.rms.util.enums.Rarity;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.client.particle.CritParticle;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.item.TNTEntity;
 import net.minecraft.entity.passive.PigEntity;
 import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.entity.projectile.ArrowEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
-import net.minecraft.particles.ParticleType;
 import net.minecraft.particles.ParticleTypes;
 import net.minecraft.potion.EffectInstance;
 import net.minecraft.potion.Effects;
 import net.minecraft.util.Hand;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.BlockRayTraceResult;
+import net.minecraft.util.math.RayTraceContext;
+import net.minecraft.util.math.RayTraceResult;
+import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.event.entity.EntityEvent;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
 import net.minecraftforge.event.entity.player.*;
 import net.minecraftforge.event.world.ExplosionEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
-import java.rmi.registry.RegistryHandler;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Random;
+import java.util.Set;
+
 
 @Mod.EventBusSubscriber(modid = RefinedMetalSmelting.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE, value = Dist.CLIENT)
 public class ModClientEvents {
+
+
+    private static List<ArrowEntity> ArrowList = new ArrayList<>();
+
+    @SubscribeEvent
+    public static void shootModBow(ArrowLooseEvent event) {
+        if (event.getBow().getItem().equals(ModItems.CARPET_BOW.get())) {
+            World world = event.getWorld();
+            LivingEntity entity = event.getEntityLiving();
+
+            Vector3d eyePos = entity.getEyePosition(1.0F);
+            BlockRayTraceResult result = entity.getEntityWorld().rayTraceBlocks(new RayTraceContext(eyePos, entity.getLookVec().mul(256,256,256).add(eyePos), RayTraceContext.BlockMode.COLLIDER, RayTraceContext.FluidMode.NONE, entity));
+
+            System.out.println(result);
+            System.out.println(result.getType());
+
+            if(result.getType() == RayTraceResult.Type.BLOCK) {
+                int x = new BlockPos(result.getHitVec()).getX();
+                int y = new BlockPos(result.getHitVec()).getY();
+                int z = new BlockPos(result.getHitVec()).getZ();
+                int offset = RefinedMetalSmelting.RANDOM.nextInt(90);
+
+                for (double i = 1; i < 101; i++) {
+                    ArrowEntity arrowEntity = new ArrowEntity(world, entity);
+                    arrowEntity.setPosition(x + Math.sin(Math.toRadians(i*50 + offset)) * (i/10D), y+100 ,z + Math.cos(Math.toRadians(i*50 + offset)) * (i/10D));
+                    arrowEntity.setVelocity(0, -i/10D, 0);
+                    world.addEntity(arrowEntity);
+                }
+            }
+        }
+    }
+
+    @SubscribeEvent
+    public static void itemOnGround(EntityEvent event) {
+        Entity entity = event.getEntity();
+        if (entity instanceof ItemEntity) {
+            World world = entity.getEntityWorld();
+            ItemStack itemStack = ((ItemEntity) entity).getItem();
+            Set set = itemStack.getItem().getTags();
+            //System.out.println(itemStack + " contains these tags: " + set);
+
+            for (ResourceLocation tags : itemStack.getItem().getTags()) {
+                if (tags.toString().equals("forge:legendary")) {
+                    for (int i = 0; i < 20; i++) {
+                        world.addParticle(ParticleTypes.CRIT,
+                                entity.getPosX(),
+                                entity.getPosY() + 0.1D,
+                                entity.getPosZ(),
+                                0, 2 + RefinedMetalSmelting.RANDOM.nextInt(20) / 10D, 0);
+                    }
+                    for (double i = 0; i < 30; i++) {
+                        world.addParticle(ParticleTypes.CRIT,
+                                entity.getPosX() + 0.75D * Math.sin(Math.toRadians(i * 30)),
+                                entity.getPosY() + 0.25D + i / 10D,
+                                entity.getPosZ() + 0.75D * Math.cos(Math.toRadians(i * 30)),
+                                0, 0, 0);
+                    }
+                } else if (tags.toString().equals("forge:epic")) {
+                    world.addParticle(ParticleTypes.DRAGON_BREATH,
+                            entity.getPosX(),
+                            entity.getPosY() + 0.1D,
+                            entity.getPosZ(),
+                            0, RefinedMetalSmelting.RANDOM.nextInt(20) / 200D, 0);
+                }
+            }
+        }
+    }
+
+    @SubscribeEvent
+    public static void test(AttackEntityEvent event) {
+        if (event.getEntity() instanceof LivingEntity) {
+            LivingEntity victim = (LivingEntity) event.getEntity();
+            World world = victim.getEntityWorld();
+            RngHelper rngHelper = new RngHelper();
+
+            if (!world.isRemote()) {
+
+                Rarity rarity = rngHelper.rarityPicker();
+                Prefixes prefix = rngHelper.prefixSelector();
+                //ToolType tooltype = rngHelper.toolSelector(rarity);
+
+
+                //could try instantiating maybe?
+                //if that doesnt work we need a new way to register objects in runtime
+                //last resort is a builder but hooly fuck idk how to do those things
+            }
+        }
+    }
 
 
     @SubscribeEvent // iron boots sink you
@@ -86,30 +179,6 @@ public class ModClientEvents {
                 }
             }
         }
-
-        Random rand = new Random();
-        double closeness = 1D;
-        double rotationOffset = 90D;
-        double transformOffset = 0.5D;
-        double randomness = rand.nextInt(16)/12.5D;
-
-        if (player.getHeldItemMainhand().getItem().equals(ModItems.GLOWSTONE_SWORD.get())) {
-            world.addParticle(ParticleTypes.CRIT,
-                    Math.cos(Math.toRadians(player.rotationYaw + rotationOffset)) + playerPos.getX(),
-                    playerPos.getY() + 1,
-                    Math.sin(Math.toRadians(player.rotationYaw + rotationOffset)) + playerPos.getZ(),
-                    0, -0.01, 0);
-
-
-//            world.addParticle(ParticleTypes.CRIT,
-//                    randomness * closeness * Math.cos(Math.toRadians(player.rotationYaw + rotationOffset)) + player.getPosX() + transformOffset,
-//                    player.getPosY() + 1,
-//                    randomness * closeness * Math.sin(Math.toRadians(player.rotationYaw + rotationOffset)) + player.getPosZ() + transformOffset,
-//                    0, -0.01, 0);
-        }
-
-
-
     }
 
 
@@ -144,14 +213,12 @@ public class ModClientEvents {
         LivingEntity igniter = event.getEntityLiving(); //grab igniter
         World world = entity.getEntityWorld(); //grab entity's world
 
-        Random rng = new Random();
-
         if (igniter.getHeldItemMainhand().getItem() == ModItems.SWORDSPLOSION.get()) {
             for (int i = 0; i < 100; i++) {
-                int fuse = rng.nextInt(15) + 5;
-                double x = rng.nextDouble();
-                double y = rng.nextDouble();
-                double z = rng.nextDouble();
+                int fuse = RefinedMetalSmelting.RANDOM.nextInt(15) + 5;
+                double x = RefinedMetalSmelting.RANDOM.nextDouble();
+                double y = RefinedMetalSmelting.RANDOM.nextDouble();
+                double z = RefinedMetalSmelting.RANDOM.nextDouble();
 
                 if (y < 0.25D) {
                     x = -x;

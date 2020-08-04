@@ -3,6 +3,10 @@ package com.smore_d.rms.init;
 import com.smore_d.rms.RefinedMetalSmelting;
 import com.smore_d.rms.blocks.BlockItemBase;
 import com.smore_d.rms.items.*;
+import com.smore_d.rms.items.special_tools.shootables.CarpetBow;
+import com.smore_d.rms.items.special_tools.shootables.Slingshot;
+import com.smore_d.rms.items.special_tools.swords.GlowstoneSword;
+import com.smore_d.rms.items.special_tools.swords.Swordsplosion;
 import com.smore_d.rms.util.enums.ModArmourMaterial;
 import com.smore_d.rms.util.enums.ModItemTier;
 import net.minecraft.inventory.EquipmentSlotType;
@@ -80,6 +84,9 @@ public class ModItems {
 
     public static final RegistryObject<Item> SLINGSHOT = ITEMS.register("slingshot", () ->
             new Slingshot(IRON_BEAD.get(), new Item.Properties().group((RefinedMetalSmelting.TAB))));
+
+    public static final RegistryObject<Item> CARPET_BOW = ITEMS.register("carpet_bow", () ->
+            new CarpetBow(new Item.Properties().group(RefinedMetalSmelting.TAB)));
 
     public static final RegistryObject<SwordItem> MK4_SWORD = ITEMS.register("mk4_sword", () ->
             new SwordItem(ModItemTier.MK4, 4, -2.4f, new Item.Properties().group(RefinedMetalSmelting.TAB)));

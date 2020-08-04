@@ -1,4 +1,4 @@
-package com.smore_d.rms.items;
+package com.smore_d.rms.items.special_tools.shootables;
 
 import com.smore_d.rms.entities.IronBallEntity;
 import net.minecraft.entity.Entity;
@@ -103,54 +103,5 @@ public class Slingshot extends BowItem {
 
         return ActionResult.resultPass(stack);
     }
-
-//    // These two methods override what ammo is used for the slingshot
-//    @Override
-//    public Predicate<ItemStack> getAmmoPredicate() {
-//        return AMMO;
-//    }
-//
-//    @Override
-//    public Predicate<ItemStack> getInventoryAmmoPredicate() {
-//        return AMMO;
-//    }
-//
-//    @Override
-//    public AbstractArrowEntity customArrow(AbstractArrowEntity arrow) {
-//        return arrow;
-//    }
-//
-//    @Override
-//    public int getMaxDamage(ItemStack stack) {
-//        return 100;
-//    }
-//
-//    @Override
-//    public int getItemStackLimit(ItemStack stack) {
-//        return 1;
-//    }
-//
-//
-////    @Nullable
-////    @Override
-////    public Entity createEntity(World world, Entity location, ItemStack itemstack) {
-////        return null;
-////    }
-//
-//    //    public static float getArrowVelocity(int charge) {
-////        float f = (float)charge / 20.0F;
-////        f = (f * f + f * 2.0F) / 3.0F;
-////        if (f > 1.0F) {
-////            f = 1.0F;
-////        }
-////
-////        return (int) (f/4);
-////    }
-////
-////    @Override
-////    public int getUseDuration(ItemStack stack) {
-////        return 18000;
-////    }
-
 
 }

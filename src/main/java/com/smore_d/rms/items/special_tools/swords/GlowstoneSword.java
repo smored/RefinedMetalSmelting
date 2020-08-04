@@ -1,4 +1,4 @@
-package com.smore_d.rms.items;
+package com.smore_d.rms.items.special_tools.swords;
 
 import com.smore_d.rms.RefinedMetalSmelting;
 import com.smore_d.rms.util.KeyboardHelper;
