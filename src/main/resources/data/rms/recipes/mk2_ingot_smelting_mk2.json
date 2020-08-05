@@ -1,0 +1,17 @@
+{
+  "type": "rms:mk2_smelting",
+  "ingredients": [
+    {
+      "item": "rms:mk2_iron_ingot",
+      "count": 3
+    },
+    {
+      "item" : "rms:cupel"
+    }
+  ],
+  "result":
+  {
+    "item": "rms:mk2_iron_ingot",
+    "count": 2
+  }
+}

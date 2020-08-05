@@ -29,6 +29,8 @@ import net.minecraft.util.math.MathHelper;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import static net.minecraftforge.common.ForgeHooks.getBurnTime;
@@ -51,12 +53,15 @@ public abstract class FurnaceTileBase extends TileEntityInv implements ITickable
         return this.recipeUseCounts;
     }
 
-    protected IRecipeType<? extends AbstractCookingRecipe> recipeType;
+    protected List<IRecipeType> recipeTypes;
 
     public FurnaceTileBase(TileEntityType<?> tileEntityTypeIn) {
         super(tileEntityTypeIn, 3);
-        this.recipeType = IRecipeType.SMELTING;
+        this.recipeTypes = new ArrayList<>();
+        this.recipeTypes.add(IRecipeType.SMELTING);
     }
+
+    abstract void addRecipeType();
 
     @Override
     public void onDataPacket(NetworkManager net, SUpdateTileEntityPacket pkt) {
@@ -156,6 +161,18 @@ public abstract class FurnaceTileBase extends TileEntityInv implements ITickable
         }
     };
 
+    private IRecipe<?> getRecipe() {
+        IRecipe<?> irecipe = null;
+        for (IRecipeType<?> recipeType: this.recipeTypes) {
+            IRecipe<?> temp = this.world.getRecipeManager().getRecipe((IRecipeType<AbstractCookingRecipe>) recipeType, this, this.world).orElse(null);
+            if(temp != null) {
+                irecipe = temp;
+                break;
+            }
+        }
+        return irecipe;
+    }
+
     @Override
     public void tick() {
         boolean flag1 = false;
@@ -168,12 +185,10 @@ public abstract class FurnaceTileBase extends TileEntityInv implements ITickable
             if (this.totalCookTime != this.getCookTime()) {
                 this.totalCookTime = this.getCookTime();
             }
-            if (this.recipeType != IRecipeType.SMELTING) {
-                this.recipeType = IRecipeType.SMELTING;
-            }
             ItemStack itemstack = this.inventory.get(1);
             if (this.isBurning() || !itemstack.isEmpty() && !this.inventory.get(0).isEmpty()) {
-                IRecipe<?> irecipe = this.world.getRecipeManager().getRecipe((IRecipeType<AbstractCookingRecipe>) this.recipeType, this, this.world).orElse(null);
+                IRecipe<?> irecipe = getRecipe();
+                //IRecipe<?> irecipe = this.world.getRecipeManager().getRecipe((IRecipeType<AbstractCookingRecipe>) this.recipeType, this, this.world).orElse(null);
                 if (!this.isBurning() && this.canSmelt(irecipe)) {
                     this.furnaceBurnTime = getBurnTime(itemstack) * this.getCookTime() / 200;
                     this.currentItemBurnTime = this.furnaceBurnTime;
