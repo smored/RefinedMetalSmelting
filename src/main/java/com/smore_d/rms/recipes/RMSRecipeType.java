@@ -4,6 +4,8 @@ import com.smore_d.rms.network.NetworkHandler;
 import com.smore_d.rms.network.packets.PacketClearRecipeCache;
 import com.smore_d.rms.recipes.api.RMSRecipe;
 import com.smore_d.rms.recipes.api.RMSRecipeTypes;
+import net.minecraft.inventory.IInventory;
+import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.item.crafting.IRecipeSerializer;
 import net.minecraft.item.crafting.IRecipeType;
 import net.minecraft.profiler.IProfiler;
@@ -11,13 +13,11 @@ import net.minecraft.resources.IFutureReloadListener;
 import net.minecraft.resources.IResourceManager;
 import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.registry.Registry;
+import net.minecraft.world.World;
 import net.minecraftforge.fml.server.ServerLifecycleHooks;
 import net.minecraftforge.registries.IForgeRegistry;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.Executor;
 

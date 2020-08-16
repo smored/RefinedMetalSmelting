@@ -2,7 +2,6 @@ package com.smore_d.rms.init;
 
 import com.smore_d.rms.RefinedMetalSmelting;
 import com.smore_d.rms.blocks.Mk2FurnaceBlock;
-import com.smore_d.rms.containers.Mk2FurnaceContainer;
 import net.minecraft.client.Minecraft;
 import net.minecraft.inventory.container.ContainerType;
 import net.minecraft.util.math.BlockPos;

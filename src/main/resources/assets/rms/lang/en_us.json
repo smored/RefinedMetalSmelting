@@ -37,6 +37,8 @@
   "item.rms.t1_frame": "Tier 1 Frame",
   "item.rms.t2_frame": "Tier 2 Frame",
 
+  "item.rms.rotator": "(WIP) Rotation Stick",
+
   "item.rms.mk1_sword": "Rusty Sword",
   "item.rms.mk1_pickaxe": "Rusty Pickaxe",
   "item.rms.mk1_shovel": "Rusty Shovel",
@@ -94,5 +96,7 @@
   "entity.rms.iron_pig": "Iron Pig",
   "item.rms.pig_iron": "Pig Iron",
 
-  "itemGroup.rmsTab": "Refined Metal Smelting"
+  "itemGroup.rmsTab": "Refined Metal Smelting",
+
+  "item.rms.cupelDesc": "Used in the smelting process of refined metal ingots"
 }

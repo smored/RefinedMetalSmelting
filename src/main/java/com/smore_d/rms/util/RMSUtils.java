@@ -36,6 +36,8 @@ import java.net.URL;
 import java.util.*;
 import java.util.stream.Collectors;
 
+import static net.minecraft.util.Direction.*;
+
 public class RMSUtils {
     private static final List<Item> inventoryItemBlacklist = new ArrayList<>();
 
@@ -57,14 +59,61 @@ public class RMSUtils {
             yaw += 360;
         yaw = yaw % 360;
         if (includeUpAndDown) {
-            if (entity.rotationPitch > 45) return Direction.DOWN;
-            else if (entity.rotationPitch < -45) return Direction.UP;
+            if (entity.rotationPitch > 45) return DOWN;
+            else if (entity.rotationPitch < -45) return UP;
         }
         if (yaw < 45) return Direction.SOUTH;
         else if (yaw < 135) return Direction.WEST;
         else if (yaw < 225) return Direction.NORTH;
         else if (yaw < 315) return Direction.EAST;
         else return Direction.SOUTH;
+    }
+
+    public static Direction rotateAround(Direction dir, Direction.Axis axis) {
+        switch (axis) {
+            case X:
+                return dir.getAxis() == Direction.Axis.X ? dir : rotateX(dir);
+            case Y:
+                return dir.getAxis() == Direction.Axis.Y ? dir : dir.rotateY();
+            case Z:
+                return dir.getAxis() == Direction.Axis.Z ? dir : rotateZ(dir);
+            default:
+                throw new IllegalStateException("Unable to get CW facing for axis " + axis);
+        }
+    }
+
+    private static Direction rotateX(Direction dir) {
+        switch (dir) {
+            case NORTH:
+                return DOWN;
+            case SOUTH:
+                return UP;
+            case UP:
+                return NORTH;
+            case DOWN:
+                return SOUTH;
+            case EAST:
+            case WEST:
+            default:
+                throw new IllegalStateException("Unable to get X-rotated facing of " + dir);
+        }
+    }
+
+    private static Direction rotateZ(Direction dir) {
+        switch (dir) {
+            case EAST:
+                return DOWN;
+            case WEST:
+                return UP;
+            case UP:
+                return EAST;
+            case DOWN:
+                return WEST;
+            case NORTH:
+            case SOUTH:
+            default:
+                throw new IllegalStateException("Unable to get Z-rotated facing of " + dir);
+        }
     }
 
     /**

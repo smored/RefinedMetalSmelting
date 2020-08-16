@@ -1,7 +1,7 @@
 package com.smore_d.rms.init;
 
 import com.smore_d.rms.RefinedMetalSmelting;
-import com.smore_d.rms.tile.entity.Mk2FurnaceEntity;
+import com.smore_d.rms.tile.entity.furnace.Mk2FurnaceEntity;
 import net.minecraft.tileentity.TileEntityType;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;

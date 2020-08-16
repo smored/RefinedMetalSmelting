@@ -1,6 +1,5 @@
 package com.smore_d.rms.client.gui;
 
-import com.smore_d.rms.containers.Mk2FurnaceContainer;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.util.text.ITextComponent;
 

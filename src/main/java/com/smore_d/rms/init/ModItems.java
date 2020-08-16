@@ -3,6 +3,7 @@ package com.smore_d.rms.init;
 import com.smore_d.rms.RefinedMetalSmelting;
 import com.smore_d.rms.blocks.BlockItemBase;
 import com.smore_d.rms.items.*;
+import com.smore_d.rms.items.furnaceContainers.RMSFurnaceContainer;
 import com.smore_d.rms.util.enums.ModArmourMaterial;
 import com.smore_d.rms.util.enums.ModItemTier;
 import net.minecraft.inventory.EquipmentSlotType;
@@ -28,7 +29,7 @@ public class ModItems {
     public static final RegistryObject<Item> BLOOD_DIAMOND = ITEMS.register("blood_diamond", ItemBase::new);
     public static final RegistryObject<Item> ENERGIZED_BLOOD_DIAMOND = ITEMS.register("energized_blood_diamond", ItemBase::new);
     public static final RegistryObject<Item> UNFIRED_CUPEL = ITEMS.register("unfired_cupel", ItemBase::new);
-    public static final RegistryObject<Item> CUPEL = ITEMS.register("cupel", ItemBase::new);
+    public static final RegistryObject<Item> CUPEL = ITEMS.register("cupel", RMSFurnaceContainer::new);
     public static final RegistryObject<Item> CARBON_COAL = ITEMS.register("carbon_coal", CarbonCoal::new);
     public static final RegistryObject<Item> KAOLIN = ITEMS.register("kaolin", ItemBase::new);
     public static final RegistryObject<Item> SPUN_IRON = ITEMS.register("spun_iron", ItemBase::new);
@@ -51,6 +52,8 @@ public class ModItems {
     public static final RegistryObject<Item> D_BN = ITEMS.register("d_bn", ItemBase::new);
     public static final RegistryObject<Item> PIG_IRON = ITEMS.register("pig_iron", ItemBase::new);
     public static final RegistryObject<Item> BLAST_PLATE = ITEMS.register("blast_plate", ItemBase::new);
+
+    public static final RegistryObject<Item> ROTATOR = ITEMS.register("rotator", ItemWrench::new);
 
     // Food subcategory
     public static final RegistryObject<Smore> SMORE = ITEMS.register("smore", Smore::new);

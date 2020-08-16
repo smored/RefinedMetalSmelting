@@ -1,13 +1,9 @@
 package com.smore_d.rms.blocks;
 
 import com.smore_d.rms.init.ModBlocks;
-import com.smore_d.rms.tile.entity.FurnaceTileBase;
-import com.smore_d.rms.tile.entity.Mk2FurnaceEntity;
-import net.minecraft.block.Block;
+import com.smore_d.rms.tile.entity.TileEntityMk2Furnace;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
-import net.minecraft.block.SoundType;
-import net.minecraft.block.material.Material;
 import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
@@ -15,19 +11,19 @@ import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.IBlockReader;
 import net.minecraft.world.World;
-import net.minecraftforge.common.ToolType;
 
 import javax.annotation.Nullable;
 
-public class Mk2FurnaceBlock extends FurnaceBase {
+public class Mk2FurnaceBlock extends BlockFurnaceBase {
 
     public static final String MK2_FURNACE = "mk2_furnace";
 
 
     public Mk2FurnaceBlock() {
-        super(Properties.from(Blocks.IRON_BLOCK));
+        super();
     }
 
+    /*
     @Override
     public void onBlockHarvested(World world, BlockPos pos, BlockState state, PlayerEntity player) {
         if (!player.isCreative()) {
@@ -43,6 +39,8 @@ public class Mk2FurnaceBlock extends FurnaceBase {
         super.onBlockHarvested(world, pos, state, player);
     }
 
+     */
+
     @Override
     public int getHarvestLevel(BlockState state) {
         return 1;
@@ -51,6 +49,11 @@ public class Mk2FurnaceBlock extends FurnaceBase {
     @Nullable
     @Override
     public TileEntity createTileEntity(BlockState state, IBlockReader world) {
-        return new Mk2FurnaceEntity();
+        return new TileEntityMk2Furnace();
+    }
+
+    @Override
+    protected Class<? extends TileEntity> getTileEntityClass() {
+        return null;
     }
 }
