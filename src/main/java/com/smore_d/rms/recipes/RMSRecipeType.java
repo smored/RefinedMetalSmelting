@@ -4,10 +4,12 @@ import com.smore_d.rms.network.NetworkHandler;
 import com.smore_d.rms.network.packets.PacketClearRecipeCache;
 import com.smore_d.rms.recipes.api.RMSRecipe;
 import com.smore_d.rms.recipes.api.RMSRecipeTypes;
+import com.smore_d.rms.tile.entity.TileEntityMk2Furnace;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.crafting.IRecipe;
 import net.minecraft.item.crafting.IRecipeSerializer;
 import net.minecraft.item.crafting.IRecipeType;
+import net.minecraft.item.crafting.RecipeManager;
 import net.minecraft.profiler.IProfiler;
 import net.minecraft.resources.IFutureReloadListener;
 import net.minecraft.resources.IResourceManager;
@@ -20,6 +22,8 @@ import net.minecraftforge.registries.IForgeRegistry;
 import java.util.*;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.Executor;
+import java.util.function.Predicate;
+import java.util.stream.Stream;
 
 import static com.smore_d.rms.util.RMSUtils.RL;
 
@@ -43,6 +47,17 @@ public class RMSRecipeType<T extends RMSRecipe> implements IRecipeType<T> {
         types.forEach(type -> Registry.register(Registry.RECIPE_TYPE, type.registryName, type));
     }
 
+    public static CacheReloadListener getCacheReloadListener() {
+        if (cacheReloadListener == null) {
+            cacheReloadListener = new CacheReloadListener();
+        }
+        return cacheReloadListener;
+    }
+
+    @Override
+    public String toString() {
+        return registryName.toString();
+    }
     private RMSRecipeType(String name) {
         this.registryName = RL(name);
     }
