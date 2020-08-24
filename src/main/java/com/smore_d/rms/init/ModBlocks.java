@@ -24,5 +24,10 @@ public class ModBlocks {
     public static final RegistryObject<Block> BORON_NITRIDE_ORE_BLOCK = BLOCKS.register("boron_nitride_ore_block", BoronNitrideOreBlock::new);
     public static final RegistryObject<Block> WEAK_BORON_NITRIDE_ORE_BLOCK = BLOCKS.register("weak_boron_nitride_ore_block", WeakBoronNitrideOreBlock::new);
     public static final RegistryObject<Block> BRIGHT_AIR = BLOCKS.register("bright_air", BrightAir::new);
-
+    public static final RegistryObject<Block> PINE_LOG = BLOCKS.register("pine_log", PineLog::new);
+    public static final RegistryObject<Block> GOLD_PINE_LOG = BLOCKS.register("gold_pine_log", GoldPineLog::new);
+    public static final RegistryObject<Block> PINE_LEAVES = BLOCKS.register("pine_leaves", PineLeaves::new);
+    public static final RegistryObject<Block> GOLD_PINE_LEAVES = BLOCKS.register("gold_pine_leaves", GoldPineLeaves::new);
+    public static final RegistryObject<Block> ASHEN_GRASS_BLOCK = BLOCKS.register("ashen_grass_block", AshenGrass::new);
+    public static final RegistryObject<Block> ASHEN_DIRT_BLOCK = BLOCKS.register("ashen_dirt_block", AshenDirt::new);
 }

@@ -1,0 +1,10 @@
+{
+  "variants": {
+    "facing=north": {"model":  "rms:block/pine_log"},
+    "facing=south": {"model":  "rms:block/pine_log", "y":  180},
+    "facing=west": {"model":  "rms:block/pine_log", "y":  270},
+    "facing=east": {"model":  "rms:block/pine_log", "y":  90},
+    "facing=up": {"model":  "rms:block/pine_log", "y":  90},
+    "facing=down": {"model":  "rms:block/pine_log", "y":  90}
+  }
+}

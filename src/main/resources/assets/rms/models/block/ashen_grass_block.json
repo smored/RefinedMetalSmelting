@@ -1,0 +1,9 @@
+{
+  "parent": "block/orientable",
+  "textures": {
+    "bottom": "rms:blocks/ashen_dirt_block",
+    "top": "rms:blocks/ashen_grass_block_top",
+    "side": "rms:blocks/ashen_grass_block_side",
+    "front": "rms:blocks/ashen_grass_block_side"
+  }
+}

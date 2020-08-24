@@ -1,20 +1,24 @@
 package com.smore_d.rms.init;
 
 import com.smore_d.rms.RefinedMetalSmelting;
-import com.smore_d.rms.blocks.BlockItemBase;
+import com.smore_d.rms.blocks.*;
 import com.smore_d.rms.items.*;
 import com.smore_d.rms.items.special_tools.shootables.CarpetBow;
 import com.smore_d.rms.items.special_tools.shootables.Slingshot;
 import com.smore_d.rms.items.special_tools.swords.FumeSword;
 import com.smore_d.rms.items.special_tools.swords.GlowstoneSword;
+import com.smore_d.rms.items.special_tools.swords.MoonSword;
 import com.smore_d.rms.items.special_tools.swords.Swordsplosion;
 import com.smore_d.rms.util.enums.ModArmourMaterial;
 import com.smore_d.rms.util.enums.ModItemTier;
+import net.minecraft.block.Block;
 import net.minecraft.inventory.EquipmentSlotType;
 import net.minecraft.item.*;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
+
+import java.rmi.registry.RegistryHandler;
 
 public class ModItems {
 
@@ -150,6 +154,9 @@ public class ModItems {
     public static final RegistryObject<SwordItem> FUME_SWORD = ITEMS.register("fume_sword", () ->
             new FumeSword(ModItemTier.MK5, 20, -3.5f, new Item.Properties().group(RefinedMetalSmelting.TAB)));
 
+    public static final RegistryObject<SwordItem> MOON_SWORD = ITEMS.register("moon_sword", () ->
+            new MoonSword(ModItemTier.MK5, 12, -3.2f, new Item.Properties().group(RefinedMetalSmelting.TAB)));
+
     // Armour
     public static final RegistryObject<ArmorItem> MK7_HELMET = ITEMS.register("mk7_helmet", () ->
             new ArmorItem(ModArmourMaterial.MK7, EquipmentSlotType.HEAD, new Item.Properties().group(RefinedMetalSmelting.TAB)));
@@ -179,4 +186,10 @@ public class ModItems {
     public static final RegistryObject<Item> KAOLINITE_ORE_BLOCK_ITEM = ITEMS.register("kaolinite_ore_block", () -> new BlockItemBase(ModBlocks.KAOLINITE_ORE_BLOCK.get()));
     public static final RegistryObject<Item> BORON_NITRIDE_ORE_BLOCK_ITEM = ITEMS.register("boron_nitride_ore_block", () -> new BlockItemBase(ModBlocks.BORON_NITRIDE_ORE_BLOCK.get()));
     public static final RegistryObject<Item> WEAK_BORON_NITRIDE_ORE_BLOCK_ITEM = ITEMS.register("weak_boron_nitride_ore_block", () -> new BlockItemBase(ModBlocks.WEAK_BORON_NITRIDE_ORE_BLOCK.get()));
+    public static final RegistryObject<Item> PINE_LOG_ITEM = ITEMS.register("pine_log", () -> new BlockItemBase(ModBlocks.PINE_LOG.get()));
+    public static final RegistryObject<Item> GOLD_PINE_LOG_ITEM = ITEMS.register("gold_pine_log", () -> new BlockItemBase(ModBlocks.GOLD_PINE_LOG.get()));
+    public static final RegistryObject<Item> PINE_LEAVES_ITEM = ITEMS.register("pine_leaves_item", () -> new BlockItemBase(ModBlocks.PINE_LEAVES.get()));
+    public static final RegistryObject<Item> GOLD_PINE_LEAVES_ITEM = ITEMS.register("gold_pine_leaves", () -> new BlockItemBase(ModBlocks.GOLD_PINE_LEAVES.get()));
+    public static final RegistryObject<Item> ASHEN_GRASS_BLOCK_ITEM = ITEMS.register("ashen_grass_block", () -> new BlockItemBase(ModBlocks.ASHEN_GRASS_BLOCK.get()));
+    public static final RegistryObject<Item> ASHEN_DIRT_BLOCK_ITEM = ITEMS.register("ashen_dirt_block", () -> new BlockItemBase(ModBlocks.ASHEN_DIRT_BLOCK.get()));
 }

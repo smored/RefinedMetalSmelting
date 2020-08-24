@@ -4,19 +4,24 @@ import com.smore_d.rms.RefinedMetalSmelting;
 import com.smore_d.rms.entities.FastDespawnArrowEntity;
 import com.smore_d.rms.entities.IronPigEntity;
 import com.smore_d.rms.init.*;
+import com.smore_d.rms.util.MathHelper;
 import com.smore_d.rms.util.RngHelper;
 import com.smore_d.rms.util.enums.Prefixes;
 import com.smore_d.rms.util.enums.Rarity;
+import javafx.geometry.Side;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.Blocks;
+import net.minecraft.block.ContainerBlock;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.item.FallingBlockEntity;
 import net.minecraft.entity.item.ItemEntity;
 import net.minecraft.entity.item.TNTEntity;
 import net.minecraft.entity.passive.PigEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.projectile.ArrowEntity;
+import net.minecraft.entity.projectile.TridentEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -29,20 +34,26 @@ import net.minecraft.util.math.*;
 import net.minecraft.util.math.vector.Vector3d;
 import net.minecraft.world.World;
 import net.minecraftforge.api.distmarker.Dist;
+import net.minecraftforge.api.distmarker.OnlyIn;
+import net.minecraftforge.client.event.EntityViewRenderEvent;
+import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.EntityEvent;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
+import net.minecraftforge.event.entity.living.LivingEntityUseItemEvent;
+import net.minecraftforge.event.entity.living.LivingEvent;
 import net.minecraftforge.event.entity.player.*;
 import net.minecraftforge.event.world.ExplosionEvent;
+import net.minecraftforge.event.world.NoteBlockEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
+import java.lang.annotation.Inherited;
+import java.util.*;
 
 
 @Mod.EventBusSubscriber(modid = RefinedMetalSmelting.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE, value = Dist.CLIENT)
 public class ModClientEvents {
+
 
 
     @SubscribeEvent
@@ -97,8 +108,10 @@ public class ModClientEvents {
         }
     }
 
-
+    private static List<UUID> userList = new ArrayList<>();
     private static List<BlockPos> blockPosList = new ArrayList<BlockPos>();
+    //private static Map<userList, blockPosList>
+
 
     @SubscribeEvent // make the glowstone sword glow
     public static void onHoldingGlowSword(PlayerEvent event) {
@@ -152,13 +165,14 @@ public class ModClientEvents {
         }
     }
 
-    @SubscribeEvent // code for the swordsplosion
+    @SubscribeEvent // code for many swords
     public static void onAttack(AttackEntityEvent event) {
         Entity target = event.getTarget().getEntity(); //grab entity being targeted
         LivingEntity igniter = event.getEntityLiving(); //grab igniter
         World world = target.getEntityWorld(); //grab entity's world
+        BlockPos targetPos = target.getPosition(); //grab position of the victim
 
-        if (igniter.getHeldItemMainhand().getItem() == ModItems.SWORDSPLOSION.get()) {
+        if (igniter.getHeldItemMainhand().getItem() == ModItems.SWORDSPLOSION.get()) { // swordsplosion
             for (int i = 0; i < 100; i++) {
                 int fuse = RefinedMetalSmelting.RANDOM.nextInt(15) + 5;
                 double x = RefinedMetalSmelting.RANDOM.nextDouble();
@@ -180,7 +194,7 @@ public class ModClientEvents {
                 tntEntity.addVelocity(x, y + 1, z);
                 tntEntity.setFuse(fuse);
             }
-        } else if (igniter.getHeldItemMainhand().getItem() == ModItems.FUME_SWORD.get()) {
+        } else if (igniter.getHeldItemMainhand().getItem() == ModItems.FUME_SWORD.get()) { // fume sword
             for (int i = 0; i < 100; i++) {
                 world.addParticle(ParticleTypes.LAVA,
                         target.getPosX(),
@@ -189,11 +203,45 @@ public class ModClientEvents {
                         0, 25 + RefinedMetalSmelting.RANDOM.nextInt(20) / 10D, 0);
             }
 
-            AxisAlignedBB aabb = new AxisAlignedBB(target.getPosX() - 12, target.getPosY() - 1, target.getPosZ() - 12, target.getPosX() + 12, target.getPosY() + 1, target.getPosZ() + 12);
+            for (int x = 0; x < 12; x++) {
+                for (int z = 0; z < 12; z++) {
+                    BlockPos blockPos = new BlockPos(targetPos.getX() + x - 6, targetPos.getY() - 1, targetPos.getZ() + z - 6);
+                    float hardness = world.getBlockState(blockPos).getBlockHardness(world, blockPos);
+                    if (!world.getBlockState(blockPos).hasTileEntity() && !world.getBlockState(blockPos).equals(Blocks.AIR.getDefaultState()) && !world.getBlockState(blockPos).equals(Blocks.CAVE_AIR.getDefaultState()) && !(hardness == -1)) {
+                        System.out.println("current block is: " + world.getBlockState(blockPos) + ", at: " + blockPos);
+                        FallingBlockEntity fallingBlockEntity = new FallingBlockEntity(world, blockPos.getX() + 0.5, blockPos.getY(), blockPos.getZ() + 0.5, world.getBlockState(blockPos));
+                        world.addEntity(fallingBlockEntity);
+                        fallingBlockEntity.addVelocity(0, 1, 0);
+                    }
+                }
+            }
+
+            AxisAlignedBB aabb = new AxisAlignedBB(target.getPosX() - 12, target.getPosY() - 6, target.getPosZ() - 12, target.getPosX() + 12, target.getPosY() + 6, target.getPosZ() + 12);
             List<Entity> affectedList = world.getEntitiesWithinAABBExcludingEntity(igniter, aabb);
+            List<FallingBlockEntity> fallingList = new ArrayList<>();
+
 
             for (Entity current : affectedList) {
-                current.addVelocity(0.5D * (current.getPosX() - target.getPosX()), 0.5D + RefinedMetalSmelting.RANDOM.nextInt(100)/100D, 0.5D * (current.getPosZ() - target.getPosZ()));
+                if (current instanceof FallingBlockEntity) {
+                    fallingList.add((FallingBlockEntity) current);
+                } else {
+                    double[] polar = MathHelper.toPolar(target.getPosX(), target.getPosZ(), current.getPosX(), current.getPosZ());
+                    polar[0] = 5 / (polar[0] + 0.0001D);
+
+                    polar[0] = polar[0] > 4 ? 4 : polar[0];
+
+                    double[] rect = MathHelper.toRect(polar[0], polar[1]);
+                    current.addVelocity(rect[0], polar[0] / 5, rect[1]);
+
+                    if (current instanceof LivingEntity) {
+                        LivingEntity livingEntity = (LivingEntity) current;
+                        livingEntity.setHealth(livingEntity.getHealth() - (float) polar[0]);
+                    }
+                }
+            }
+        } else if (igniter.getHeldItemMainhand().getItem() == ModItems.MOON_SWORD.get()) {
+            if (world.getDayTime() > 12000) {
+                System.out.println("test");
             }
         }
     }

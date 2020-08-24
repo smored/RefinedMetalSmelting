@@ -21,10 +21,10 @@ public class FumeSword extends SwordItem {
     public void addInformation(ItemStack stack, World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
 
 
-        tooltip.set(0, new StringTextComponent(Rarity.LEGENDARY.colour + "Fume Ultra-GreatSword"));
+        tooltip.set(0, new StringTextComponent(Rarity.LEGENDARY.colour + "Fume Sword"));
         tooltip.add(new StringTextComponent("\u00A7f" + "- " + "\u00A7c" + "\u00A7o" + "Your journey began because you died"));
         tooltip.add(new StringTextComponent("\u00A7f" + "- " + "\u00A7f" + "The sheer weight of this weapon makes it hard hitting but very slow"));
-        tooltip.add(new StringTextComponent("\u00A7f" + "- " + "\u00A7f" + "Creates a great" + "\u00A7e" + " shockwave " + "\u00A7f" + "on use"));
+        tooltip.add(new StringTextComponent("\u00A7f" + "- " + "\u00A7f" + "Creates a great" + "\u00A7e" + " shockwave " + "\u00A7f" + "that damages and hurls nearby mobs"));
 
         super.addInformation(stack, worldIn, tooltip, flagIn);
     }

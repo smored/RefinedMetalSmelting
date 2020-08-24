@@ -28,18 +28,4 @@ public class Smore extends Item {
                         .build())
         );
     }
-
-    @Override
-    public void addInformation(ItemStack stack, @Nullable World worldIn, List<ITextComponent> tooltip, ITooltipFlag flagIn) {
-
-        tooltip.set(0, new StringTextComponent("\u00A76" + "test"));
-
-        super.addInformation(stack, worldIn, tooltip, flagIn);
-    }
-
-    //    @Override
-//    public Rarity getRarity(ItemStack stack) {
-//        return Rarity.UNCOMMON;
-//    }
-
 }

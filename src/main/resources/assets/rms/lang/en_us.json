@@ -18,7 +18,7 @@
   "item.rms.spun_iron": "Spun Iron",
   "item.rms.blood_diamond": "Blood Diamond",
   "item.rms.energized_blood_diamond": "Energized Blood Diamond",
-  "item.rms.smore": "test",
+  "item.rms.smore": "Herculean Smore",
   "item.rms.carbon_coal": "High-Carbon Coal",
   "item.rms.unfired_cupel": "Unfired Cupel",
   "item.rms.cupel": "Fired Cupel",
@@ -49,7 +49,7 @@
   "item.rms.mk2_axe": "Dull Axe",
   "item.rms.mk2_hoe": "Dull Hoe",
 
-  "item.rms.slingshot": "Glock 17",
+  "item.rms.slingshot": "BFS-9000",
 
   "item.rms.mk4_sword": "Blue Steel Sword",
   "item.rms.mk4_pickaxe": "Blue Steel Pickaxe",
@@ -80,6 +80,8 @@
   "item.rms.mk8_pickaxe": "Nokian God Pick",
 
   "item.rms.swordsplosion": "SWORDSPLOSION!!!",
+  "item.rms.fume_sword": "Fume-Sword",
+  "item.rms.moon_sword": "Moon Sword",
 
   "item.rms.mk7_helmet": "Unstable Helmet",
   "item.rms.mk7_chestplate": "Unstable Chestplate",

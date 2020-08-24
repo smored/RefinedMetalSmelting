@@ -1,0 +1,6 @@
+{
+  "parent": "minecraft:block/leaves",
+  "textures": {
+    "all": "rms:blocks/gold_pine_leaves"
+  }
+}

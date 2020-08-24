@@ -10,7 +10,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.util.text.ITextComponent;
 
 public abstract class FurnaceScreenBase <T extends FurnaceContainerBase> extends ContainerScreen<T> {
-    public ResourceLocation GUI = new ResourceLocation(RefinedMetalSmelting.MOD_ID + ":" + "textures/gui/furnace.png");
+    public ResourceLocation GUI = new ResourceLocation(RefinedMetalSmelting.MOD_ID + ":" + "textures/gui/mk2_furnace_gui.png");
     PlayerInventory playerInv;
     ITextComponent name;
 

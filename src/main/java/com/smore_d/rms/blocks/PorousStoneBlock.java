@@ -9,7 +9,7 @@ public class PorousStoneBlock extends Block{
 
 
     public PorousStoneBlock() {
-        super(Block.Properties.create(Material.EARTH)
+        super(Block.Properties.create(Material.ROCK)
                 .hardnessAndResistance(1.5f, 30.0f)
                 .sound(SoundType.STONE)
                 .harvestLevel(1)
